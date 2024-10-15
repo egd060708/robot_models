@@ -47,6 +47,7 @@ Robot {
         name "lb_guideWheel"
         boundingObject USE guideWheel
         physics Physics {
+          density 1000
         }
       }
     }
@@ -71,6 +72,7 @@ Robot {
         name "lf_guideWheel"
         boundingObject USE guideWheel
         physics Physics {
+          density 1000
         }
       }
     }
@@ -95,6 +97,7 @@ Robot {
         name "rb_guideWheel"
         boundingObject USE guideWheel
         physics Physics {
+          density 1000
         }
       }
     }
@@ -119,6 +122,7 @@ Robot {
         name "rf_guideWheel"
         boundingObject USE guideWheel
         physics Physics {
+          density 1000
         }
       }
     }
@@ -193,7 +197,7 @@ Robot {
                     ]
                     boundingObject USE left_wheel
                     physics Physics {
-                      density 1714.98
+                      density 1000
                     }
                   }
                 }
@@ -253,7 +257,7 @@ Robot {
               name "left_back_long_leg"
               boundingObject USE left_long_leg
               physics Physics {
-                density 590.922
+                density 1000
               }
             }
           }
@@ -313,7 +317,7 @@ Robot {
         name "solid(3)"
         boundingObject USE left_back_short_leg
         physics Physics {
-          density 1273.31
+          density 1000
         }
       }
     }
@@ -417,7 +421,7 @@ Robot {
               name "left_front_long_leg"
               boundingObject USE left_long_leg
               physics Physics {
-                density 590.922
+                density 1000
               }
             }
           }
@@ -477,7 +481,7 @@ Robot {
         name "solid(2)"
         boundingObject USE left_front_short_leg
         physics Physics {
-          density 1273.31
+          density 1000
         }
       }
     }
@@ -583,7 +587,7 @@ Robot {
               name "right_back_long_leg"
               boundingObject USE right_long_leg
               physics Physics {
-                density 590.922
+                density 1000
               }
             }
           }
@@ -643,7 +647,7 @@ Robot {
         name "solid(1)"
         boundingObject USE right_back_short_leg
         physics Physics {
-          density 1273.31
+          density 1000
         }
       }
     }
@@ -712,7 +716,7 @@ Robot {
                     ]
                     boundingObject USE right_wheel
                     physics Physics {
-                      density 1714.98
+                      density 1000
                     }
                   }
                 }
@@ -772,7 +776,7 @@ Robot {
               name "right_front_long_leg"
               boundingObject USE right_long_leg
               physics Physics {
-                density 590.922
+                density 1000
               }
             }
           }
@@ -831,7 +835,7 @@ Robot {
         ]
         boundingObject USE right_front_short_leg
         physics Physics {
-          density 1273.31
+          density 1000
         }
       }
     }
@@ -971,11 +975,7 @@ Robot {
   name IS name
   boundingObject USE wheelbipe_body
   physics Physics {
-    density -1
-    mass 15
-    centerOfMass [
-      0 0.024162 0
-    ]
+    density 1000
   }
   controller IS controller
   selfCollision TRUE
