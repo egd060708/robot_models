@@ -1,0 +1,156 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/StraightRoadSegment.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/CurvedRoadSegment.proto"
+EXTERNPROTO "../protos/parallelWheelBipe.proto"
+
+WorldInfo {
+  basicTimeStep 2
+}
+Viewpoint {
+  orientation 0.18139182866370696 0.3830220064554443 -0.9057544629008913 0.8009677780763124
+  position -13.66582810488553 4.418335120338551 3.2947254607578644
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 40 40
+}
+DEF 飞坡4 StraightRoadSegment {
+  translation -10 -3.206 0.2
+  rotation 0 0 1 1.5707996938995747
+  name "road(6)"
+  width 2
+  roadBorderHeight 0.2
+  startingRoadBorderWidth 0.2
+  endingRoadBorderWidth 0.2
+  length 4
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+DEF 飞坡3 Solid {
+  translation -10 -5 0.2
+  rotation 0 0 1 1.5707996938995747
+  children [
+    StraightRoadSegment {
+      rotation 0 1 0 -0.297
+      width 1
+      roadBorderHeight 0.2
+      startingRoadBorderWidth 0.2
+      endingRoadBorderWidth 0.2
+      length 1.232
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(2)"
+}
+DEF 飞坡2 Solid {
+  translation -10 -10 0.2
+  rotation 0.1294279597735375 0.1294279597735375 -0.9831056944488314 1.58784
+  children [
+    DEF slope StraightRoadSegment {
+      width 1
+      roadBorderHeight 0.2
+      startingRoadBorderWidth 0.2
+      endingRoadBorderWidth 0.2
+      length 1
+      roadBoundingObject TRUE
+      rightBorderBoundingObject TRUE
+      leftBorderBoundingObject TRUE
+    }
+  ]
+  name "solid(1)"
+}
+DEF 飞坡1 StraightRoadSegment {
+  translation -10 -10 0.2
+  rotation 0 0 1 1.5708003061004252
+  name "road(5)"
+  width 1
+  roadBorderHeight 0.2
+  startingRoadBorderWidth 0.2
+  endingRoadBorderWidth 0.2
+  length 5
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+DEF huge_slope3 CurvedRoadSegment {
+  translation 7.5 -2.5 0.95
+  name "road(2)"
+  width 3
+  roadBorderHeight 0.5
+  curvatureRadius 2.5
+  totalAngle 3.14159
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+DEF huge_slope2 StraightRoadSegment {
+  translation 5.5 0 0.95
+  name "road(1)"
+  width 3
+  roadBorderHeight 0.5
+  length 2
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+DEF huge_slope4 StraightRoadSegment {
+  translation 5.5 -5 0.95
+  name "road(3)"
+  width 3
+  roadBorderHeight 0.5
+  length 2
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+DEF huge_slope1 StraightRoadSegment {
+  translation 2 0 0
+  rotation 0 1 0 -0.2617996938995747
+  width 3
+  length 3.65
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+DEF huge_slope5 StraightRoadSegment {
+  translation 0.35 -5 0
+  rotation 0 1 0 -0.1818
+  name "road(4)"
+  width 3
+  length 5.25
+  roadBoundingObject TRUE
+  rightBorderBoundingObject TRUE
+  leftBorderBoundingObject TRUE
+}
+DEF step1 Solid {
+  translation -5.53395 6.305 -4.44089e-16
+  children [
+    DEF step1 Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        roughness 0.5
+        metalness 0.5
+      }
+      geometry Box {
+        size 4 2 0.4
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE step1
+}
+parallelWheelBipe {
+  translation -6.82 7.71361e-06 0.21
+  rotation 0 0 1 1.5708
+  controller "parallelWb_controller"
+}
