@@ -44,5 +44,4 @@
 /.tmp/
 /logs/
 
-/controllers/dog_vs/.vs
-/controllers/parallelWb_controller
+/controllers/parallelWb_controller/.vs

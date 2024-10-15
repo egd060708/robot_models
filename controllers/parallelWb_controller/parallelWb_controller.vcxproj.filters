@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="parallelWb_controller.cpp" />
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\VacuumGripper.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\TouchSensor.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Supervisor.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Speaker.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Skin.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Robot.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Receiver.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\RangeFinder.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Radar.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\PositionSensor.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Pen.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Node.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Mouse.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Motor.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Motion.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\LightSensor.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Lidar.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\LED.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Keyboard.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Joystick.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\InertialUnit.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Gyro.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\GPS.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Field.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Emitter.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\DistanceSensor.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Display.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Device.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Compass.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Connector.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Camera.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Brake.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Altimeter.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Accelerometer.cpp">
+      <Filter>webotsLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGoutfile.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\BLASReplacement.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Bounds.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Constraints.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Flipper.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Indexlist.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\LAPACKReplacement.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Matrices.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\MessageHandling.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Options.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\OQPinterface.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblem.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblemB.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SolutionAnalysis.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SparseSolver.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblem.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblemSchur.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SubjectTo.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Utils.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="webotsLib">
+      <UniqueIdentifier>{3a05efed-0cce-4335-8c4c-ce8f3cc1e841}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="application">
+      <UniqueIdentifier>{ebfc3ccb-7d07-4212-932f-c432bf502c20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qpOASES">
+      <UniqueIdentifier>{86d0e3bb-fd17-4143-88bb-a73965803698}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="application\dataDisplay.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\lqrCalculater.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\manipulator.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\manipulator_controller.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\model_fit.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\MPC_Calculator.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\myMatrices.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\PIDmethod.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\state_data.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\Upper_Public.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="application\user_data.h">
+      <Filter>application</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

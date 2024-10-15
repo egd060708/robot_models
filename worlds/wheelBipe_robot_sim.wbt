@@ -11,8 +11,8 @@ WorldInfo {
   basicTimeStep 2
 }
 Viewpoint {
-  orientation 0.18139182866370696 0.3830220064554443 -0.9057544629008913 0.8009677780763124
-  position -13.66582810488553 4.418335120338551 3.2947254607578644
+  orientation 0.2241467058247267 -0.0025574699380196218 -0.9745520579299186 3.0531015925254112
+  position -2.3020944361872333 0.6809201485290539 2.798862216118848
 }
 TexturedBackground {
 }
@@ -150,7 +150,7 @@ DEF step1 Solid {
   boundingObject USE step1
 }
 parallelWheelBipe {
-  translation -6.82 7.71361e-06 0.21
+  translation -7.04 6.75854e-06 0.2
   rotation 0 0 1 1.5708
   controller "parallelWb_controller"
 }
