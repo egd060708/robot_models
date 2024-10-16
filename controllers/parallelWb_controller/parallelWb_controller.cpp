@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
   /*自定义算法类*/
   PIDmethod wheel_subController;
   PIDmethod joint_subController[4];
-  lqrCalculater<10, 4> lqr_calculate[2];
+  lqrCalculater<10, 4> lqr_calculate;
   State_Data_Classdef infantry_state((float)timeStep / 1000.);
   UserData_Classdef user_params;
   Manipulator_Classdef right_manipulator(infantry_state.dt);
@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
   modelFit<6, 3, 3> modelB;
   right_manipulator.Init(RF_JOINT_OFFSET, RB_JOINT_OFFSET, F_JOINT_MAX, F_JOINT_MIN, B_JOINT_MAX, B_JOINT_MIN);
   left_manipulator.Init(LF_JOINT_OFFSET, LB_JOINT_OFFSET, F_JOINT_MAX, F_JOINT_MIN, B_JOINT_MAX, B_JOINT_MIN);
-  controller.Load_Lqr_Controller(lqr_calculate);
+  controller.Load_Lqr_Controller(&lqr_calculate);
   controller.Load_Wheel_SubController(&wheel_subController);
   controller.Load_Joint_SubController(joint_subController);
   controller.Load_Mpc_Controller(mpcCal, &modelA, &modelB);
@@ -226,7 +226,8 @@ int main(int argc, char **argv) {
       left_manipulator.current_joint_update(lf_alpha, lb_alpha);
       left_manipulator.current_joint_update(current_right_ps, current_rspeed);
       //left_manipulator.body_angle_update(infantry_state.current_pos.pitch,infantry_state.current_av.pitch);
-
+      cout << right_manipulator.current_joint.pendulum.angle << endl;
+      cout << left_manipulator.current_joint.pendulum.angle << endl;
       /*控制解算*/
       controller.Set_Enable_List(w_en, j_en);
       controller.controll_adjust();
