@@ -166,7 +166,7 @@ Robot {
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
-                    position -2.0986214416214426
+                    position 0
                     axis 0 1 0
                     anchor 0.288 0.02 0
                   }
@@ -174,7 +174,7 @@ Robot {
                     RotationalMotor {
                       name "left_wheel_motor"
                       maxVelocity 50
-                      maxTorque 6
+                      maxTorque 12
                     }
                     PositionSensor {
                       name "left_wheel_ps"
@@ -676,7 +676,7 @@ Robot {
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
-                    position 2.1836416111901245
+                    position 0
                     axis 0 -1 0
                     anchor 0.288 -0.02 0
                   }
@@ -687,7 +687,7 @@ Robot {
                     RotationalMotor {
                       name "right_wheel_motor"
                       maxVelocity 50
-                      maxTorque 6
+                      maxTorque 12
                     }
                   ]
                   endPoint DEF right_wheel Solid {

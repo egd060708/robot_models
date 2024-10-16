@@ -62,8 +62,8 @@ int main(int argc, char **argv) {
   controller.Load_Joint_SubController(joint_subController);
   controller.Load_Mpc_Controller(mpcCal, &modelA, &modelB);
   controller.Init();//控制器最后初始化
-  bool w_en[6] = { true,true,true,true,true,true };
-  bool j_en[6] = { true,true,true,true,true,true };
+  bool w_en[6] = { true,true,true,true,true };
+  bool j_en[7] = { true,true,true,true,true,true,true };
   
   /*****************************************************************************************/
 
@@ -137,13 +137,13 @@ int main(int argc, char **argv) {
           switch (key)
           {
           case 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.15; y_speed_max = 4.5; }
-                  else { target_yspeed += 0.05; y_speed_max = 2.0; }
+                  else { target_yspeed += 0.015; y_speed_max = 2.0; }
                   y_speed_get = true; break;
           case keyboard->SHIFT + 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.2; y_speed_max = 5.0; }
-                                    else { target_yspeed += 0.1; y_speed_max = 3.0; }
+                                    else { target_yspeed += 0.02; y_speed_max = 3.0; }
                                     y_speed_get = true; break;
-          case 'S': target_yspeed -= 0.04, y_speed_max = 2.0, y_speed_get = true; break;
-          case keyboard->SHIFT + 'S': target_yspeed -= 0.08, y_speed_max = 3.0, y_speed_get = true; break;
+          case 'S': target_yspeed -= 0.005, y_speed_max = 2.0, y_speed_get = true; break;
+          case keyboard->SHIFT + 'S': target_yspeed -= 0.008, y_speed_max = 3.0, y_speed_get = true; break;
           default:  break;
           }
           switch (key)
@@ -196,13 +196,13 @@ int main(int argc, char **argv) {
         // Process sensor data here.
         /*轮子部分*/
       float current_left_ps = left_wheel_ps->getValue();
-      static float last_clps = 0;
-      float current_lspeed = (current_left_ps - last_clps) / timeStep * 1000 * 0.07;
+      static float last_clps = current_left_ps;
+      float current_lspeed = (current_left_ps - last_clps) / timeStep * 1000;
       float current_right_ps = right_wheel_ps->getValue();
-      static float last_crps = 0;
-      float current_rspeed = (current_right_ps - last_crps) / timeStep * 1000 * 0.07;
+      static float last_crps = current_right_ps;
+      float current_rspeed = (current_right_ps - last_crps) / timeStep * 1000;
       float current_distance = 0.5 * (current_left_ps - current_right_ps) * 0.07;//获取当前距离
-      float current_speed = 0.5 * (current_lspeed - current_rspeed);//获取当前速度
+      float current_speed = 0.5 * (current_lspeed - current_rspeed) * 0.07;//获取当前速度
       last_clps = current_left_ps;
       last_crps = current_right_ps;
       
@@ -221,24 +221,24 @@ int main(int argc, char **argv) {
       float lf_alpha = lf_ps->getValue();
       float lb_alpha = lb_ps->getValue();
       right_manipulator.current_joint_update(-rf_alpha, -rb_alpha);
-      right_manipulator.current_wheel_update(current_left_ps, current_lspeed);
+      right_manipulator.current_wheel_update(-0, -current_rspeed);
       //right_manipulator.body_angle_update(infantry_state.current_pos.pitch,infantry_state.current_av.pitch);
       left_manipulator.current_joint_update(lf_alpha, lb_alpha);
-      left_manipulator.current_joint_update(current_right_ps, current_rspeed);
+      left_manipulator.current_wheel_update(0, current_lspeed);
       //left_manipulator.body_angle_update(infantry_state.current_pos.pitch,infantry_state.current_av.pitch);
-      cout << right_manipulator.current_joint.pendulum.angle << endl;
-      cout << left_manipulator.current_joint.pendulum.angle << endl;
+      /*cout << left_manipulator.current_joint.wheel.dangle << ", " << left_manipulator.target_joint.wheel.dangle << endl;
+      cout << right_manipulator.current_joint.wheel.dangle << ", " << right_manipulator.target_joint.wheel.dangle << endl;*/
       /*控制解算*/
       controller.Set_Enable_List(w_en, j_en);
       controller.controll_adjust();
 
       /*控制量下发*/
-      right_wheel_motor->setTorque(-upper::constrain(right_manipulator.torque_output.wheel, -5., 5.));
-      left_wheel_motor->setTorque(-upper::constrain(left_manipulator.torque_output.wheel, -5., 5.));
-      rf_motor->setTorque(-upper::constrain(right_manipulator.torque_output.f_joint, -17.5, 17.5));
-      rb_motor->setTorque(-upper::constrain(right_manipulator.torque_output.b_joint, -17.5, 17.5));
-      lf_motor->setTorque(-upper::constrain(left_manipulator.torque_output.f_joint, -17.5, 17.5));
-      lb_motor->setTorque(-upper::constrain(left_manipulator.torque_output.b_joint, -17.5, 17.5));
+      right_wheel_motor->setTorque(upper::constrain(right_manipulator.torque_output.wheel, -10., 10.));
+      left_wheel_motor->setTorque(upper::constrain(left_manipulator.torque_output.wheel, -10., 10.));
+      rf_motor->setTorque(upper::constrain(right_manipulator.torque_output.f_joint, -17.5, 17.5));
+      rb_motor->setTorque(upper::constrain(right_manipulator.torque_output.b_joint, -17.5, 17.5));
+      lf_motor->setTorque(upper::constrain(left_manipulator.torque_output.f_joint, -17.5, 17.5));
+      lb_motor->setTorque(upper::constrain(left_manipulator.torque_output.b_joint, -17.5, 17.5));
 
       //std::cout << upper::constrain(right_manipulator.torque_output.f_joint, -17.5, 17.5)<< " " << rf_motor->getTorqueFeedback() << std::endl;
 
