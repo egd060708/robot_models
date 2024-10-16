@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
   /*自定义算法类*/
   PIDmethod wheel_subController;
   PIDmethod joint_subController[4];
-  lqrCalculater<10, 4> lqr_calculate[2];
+  lqrCalculater<6, 2> lqr_calculate[2];
   State_Data_Classdef infantry_state((float)timeStep / 1000.);
   UserData_Classdef user_params;
   Manipulator_Classdef right_manipulator(infantry_state.dt);
@@ -221,10 +221,10 @@ int main(int argc, char **argv) {
       float lf_alpha = lf_ps->getValue();
       float lb_alpha = lb_ps->getValue();
       right_manipulator.current_joint_update(-rf_alpha, -rb_alpha);
-      right_manipulator.current_wheel_update(current_left_ps, current_lspeed);
+      //right_manipulator.current_wheel_update(current_left_ps, current_lspeed);
       //right_manipulator.body_angle_update(infantry_state.current_pos.pitch,infantry_state.current_av.pitch);
       left_manipulator.current_joint_update(lf_alpha, lb_alpha);
-      left_manipulator.current_joint_update(current_right_ps, current_rspeed);
+      //left_manipulator.current_joint_update(current_right_ps, current_rspeed);
       //left_manipulator.body_angle_update(infantry_state.current_pos.pitch,infantry_state.current_av.pitch);
 
       /*控制解算*/
