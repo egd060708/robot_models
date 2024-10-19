@@ -112,7 +112,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Libraries\qpOASES-stable-3.2\install\include\qpOASES;D:\Libraries\qpOASES-stable-3.2\install\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Libraries\eigen-3.4.0\install\include\eigen3;D:\Git_Project\github\WheelBipe_Simulate\libs\observer\KelmanFilter\Cpp\include;D:\Libraries\qpOASES-stable-3.2\install\include\qpOASES;D:\Libraries\qpOASES-stable-3.2\install\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -178,6 +178,7 @@
     <ClCompile Include="parallelWb_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\libs\observer\KelmanFilter\Cpp\include\kelmanFilter.h" />
     <ClInclude Include="application\dataDisplay.h" />
     <ClInclude Include="application\lqrCalculater.h" />
     <ClInclude Include="application\manipulator.h" />
