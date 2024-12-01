@@ -5,14 +5,13 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/StraightRoadSegment.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/road/protos/CurvedRoadSegment.proto"
-EXTERNPROTO "../protos/parallelWheelBipe.proto"
 
 WorldInfo {
   basicTimeStep 2
 }
 Viewpoint {
-  orientation -0.31102632372786304 -0.37050316947957745 0.8752085622032717 4.83747418992382
-  position -0.29858071594729535 3.1898115438224677 2.4378250315319177
+  orientation 0.13007417786657346 0.9892986886968127 0.06609699535608124 0.1831525255642553
+  position -2.152563644841855 0.6805981203919149 0.9709561692581191
 }
 TexturedBackground {
 }
@@ -184,7 +183,6 @@ DEF Wheelbipe_Robot Robot {
         name "lb_guideWheel"
         boundingObject USE guideWheel
         physics Physics {
-          density 1000
         }
       }
     }
@@ -209,7 +207,6 @@ DEF Wheelbipe_Robot Robot {
         name "lf_guideWheel"
         boundingObject USE guideWheel
         physics Physics {
-          density 1000
         }
       }
     }
@@ -234,7 +231,6 @@ DEF Wheelbipe_Robot Robot {
         name "rb_guideWheel"
         boundingObject USE guideWheel
         physics Physics {
-          density 1000
         }
       }
     }
@@ -259,7 +255,6 @@ DEF Wheelbipe_Robot Robot {
         name "rf_guideWheel"
         boundingObject USE guideWheel
         physics Physics {
-          density 1000
         }
       }
     }
@@ -271,11 +266,11 @@ DEF Wheelbipe_Robot Robot {
     }
     DEF left_back_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position 0.0513165
+        position 0.9
         axis 0 1 0
-        anchor -0.075 0.23 0
-        minStop -1.4
-        maxStop 0.175
+        anchor 0 0.23 0
+        minStop -2
+        maxStop 2
         dampingConstant 0.02
       }
       device [
@@ -288,25 +283,24 @@ DEF Wheelbipe_Robot Robot {
         }
       ]
       endPoint Solid {
-        translation -0.075 0.23 0
-        rotation 0 -0.9999999999999999 0 2.7412099877601874
+        translation 0 0.23 0
+        rotation 0 1 0 0.9000000000000001
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position 0.038712890247270614
+              position 1.9
               axis 0 -1 0
-              anchor 0.15 0.02 0
+              anchor 0 0.02 -0.212
               dampingConstant 0.01
             }
             endPoint Solid {
-              translation 0.15 0.02 0
-              rotation 0 -1 0 2.8058953071795862
+              translation 0 0.02 -0.212
+              rotation 0 -1 0 1.9
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
-                    position -2.0986214416214426
-                    axis 0 -1 0
-                    anchor 0.288 0.02 0
+                    axis 0 1 0
+                    anchor 0 0.02 -0.245
                     dampingConstant 0.01
                   }
                   device [
@@ -320,8 +314,8 @@ DEF Wheelbipe_Robot Robot {
                     }
                   ]
                   endPoint DEF left_wheel Solid {
-                    translation 0.288 0.02 0
-                    rotation -0.6103576227954434 -0.5601176538440361 -0.5601176538440363 2.045595307179585
+                    translation 0 0.02 -0.245
+                    rotation 1 0 0 1.5707996938995747
                     children [
                       DEF left_wheel Shape {
                         appearance PBRAppearance {
@@ -334,14 +328,13 @@ DEF Wheelbipe_Robot Robot {
                     ]
                     boundingObject USE left_wheel
                     physics Physics {
-                      density 1000
                     }
                   }
                 }
                 DEF left_long_leg Group {
                   children [
                     Pose {
-                      translation 0.288 0 0
+                      translation 0 0 -0.245
                       rotation 1 0 0 1.5707996938995747
                       children [
                         Shape {
@@ -358,7 +351,7 @@ DEF Wheelbipe_Robot Robot {
                       ]
                     }
                     Pose {
-                      translation 0.144 0 0
+                      translation 0 0 -0.1225
                       children [
                         Shape {
                           appearance PBRAppearance {
@@ -367,7 +360,7 @@ DEF Wheelbipe_Robot Robot {
                             metalness 0.5
                           }
                           geometry Box {
-                            size 0.28 0.02 0.04
+                            size 0.04 0.02 0.245
                           }
                         }
                       ]
@@ -394,14 +387,14 @@ DEF Wheelbipe_Robot Robot {
               name "left_back_long_leg"
               boundingObject USE left_long_leg
               physics Physics {
-                density 1000
               }
             }
           }
           DEF left_back_short_leg Group {
             children [
               Pose {
-                translation 0.075 0 0
+                translation 0 0 -0.106
+                rotation 0 1 0 0
                 children [
                   Shape {
                     appearance PBRAppearance {
@@ -410,13 +403,13 @@ DEF Wheelbipe_Robot Robot {
                       metalness 0.5
                     }
                     geometry Box {
-                      size 0.15 0.02 0.05
+                      size 0.05 0.02 0.212
                     }
                   }
                 ]
               }
               Pose {
-                translation 0.15 0 0
+                translation 0 0 -0.212
                 rotation 1 0 0 1.5707996938995747
                 children [
                   Shape {
@@ -454,224 +447,80 @@ DEF Wheelbipe_Robot Robot {
         name "solid(3)"
         boundingObject USE left_back_short_leg
         physics Physics {
-          density 1000
-        }
-      }
-    }
-    DEF left_front_hinge HingeJoint {
-      jointParameters HingeJointParameters {
-        position -0.0544641
-        axis 0 1 0
-        anchor 0.075 0.25 0
-        minStop -0.175
-        maxStop 1.4
-        dampingConstant 0.02
-      }
-      device [
-        RotationalMotor {
-          name "lf_motor"
-          maxTorque 17.5
-        }
-        PositionSensor {
-          name "lf_ps"
-        }
-      ]
-      endPoint Solid {
-        translation 0.075 0.25 0
-        rotation 0 -1 0 0.40353004430149453
-        children [
-          HingeJoint {
-            jointParameters HingeJointParameters {
-              position -0.040736768467936495
-              axis 0 -1 0
-              anchor 0.15 -0.02 0
-              dampingConstant 0.01
-            }
-            endPoint Solid {
-              translation 0.15 -0.02 0
-              rotation 0 1 0 2.8079253071795867
-              children [
-                HingeJoint {
-                  jointParameters HingeJointParameters {
-                    position -0.026330893957605433
-                    axis 0 -1 0
-                    anchor 0.288 0.02 0
-                    dampingConstant 0.01
-                  }
-                  endPoint SolidReference {
-                    solidName "left_back_long_leg"
-                  }
-                }
-                DEF left_long_leg Group {
-                  children [
-                    Pose {
-                      translation 0.288 0 0
-                      rotation 1 0 0 1.5707996938995747
-                      children [
-                        Shape {
-                          appearance PBRAppearance {
-                            baseColor 0 0 0
-                            roughness 0.5
-                            metalness 0.5
-                          }
-                          geometry Cylinder {
-                            height 0.02
-                            radius 0.02
-                          }
-                        }
-                      ]
-                    }
-                    Pose {
-                      translation 0.144 0 0
-                      children [
-                        Shape {
-                          appearance PBRAppearance {
-                            baseColor 0 0 0
-                            roughness 0.5
-                            metalness 0.5
-                          }
-                          geometry Box {
-                            size 0.288 0.02 0.04
-                          }
-                        }
-                      ]
-                    }
-                    Pose {
-                      rotation 1 0 0 1.5707996938995747
-                      children [
-                        Shape {
-                          appearance PBRAppearance {
-                            baseColor 0 0 0
-                            roughness 0.5
-                            metalness 0.5
-                          }
-                          geometry Cylinder {
-                            height 0.02
-                            radius 0.02
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-              name "left_front_long_leg"
-              boundingObject USE left_long_leg
-              physics Physics {
-                density 1000
-              }
-            }
-          }
-          DEF left_front_short_leg Group {
-            children [
-              Pose {
-                translation 0.075 0 0
-                children [
-                  Shape {
-                    appearance PBRAppearance {
-                      baseColor 0 0 0
-                      roughness 0.5
-                      metalness 0.5
-                    }
-                    geometry Box {
-                      size 0.15 0.02 0.05
-                    }
-                  }
-                ]
-              }
-              Pose {
-                translation 0.15 0 0
-                rotation 1 0 0 1.5707996938995747
-                children [
-                  Shape {
-                    appearance PBRAppearance {
-                      baseColor 0 0 0
-                      roughness 0.5
-                      metalness 0.5
-                    }
-                    geometry Cylinder {
-                      height 0.02
-                      radius 0.025
-                    }
-                  }
-                ]
-              }
-              Pose {
-                rotation 1 0 0 1.5707996938995747
-                children [
-                  Shape {
-                    appearance PBRAppearance {
-                      baseColor 0 0 0
-                      roughness 0.5
-                      metalness 0.5
-                    }
-                    geometry Cylinder {
-                      height 0.02
-                      radius 0.025
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-        name "solid(2)"
-        boundingObject USE left_front_short_leg
-        physics Physics {
-          density 1000
         }
       }
     }
     DEF right_back_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position -0.0521281
+        position -0.9
         axis 0 -1 0
-        anchor -0.075 -0.25 0
-        minStop -0.175
-        maxStop 1.4
+        anchor 0 -0.231 0
+        minStop -2
+        maxStop 2
         dampingConstant 0.02
       }
       device [
         RotationalMotor {
           name "rb_motor"
-          maxTorque 17.5
+          maxTorque 40
         }
         PositionSensor {
           name "rb_ps"
         }
       ]
       endPoint Solid {
-        translation -0.075 -0.25 0
-        rotation 0 -1 0 2.740399989623581
+        translation 0 -0.231 0
+        rotation 0 1 0 0.9000000000000001
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position 0.03947578366112464
-              axis 0 -1 0
-              anchor 0.15 0.02 0
-              minStop -1.74533
-              maxStop 1.75
+              position -1.9
+              axis 0 1 0
+              anchor 0 -0.021 -0.212
               dampingConstant 0.01
             }
             endPoint Solid {
-              translation 0.15 0.02 0
-              rotation 0 -1 0 2.8066653071795864
+              translation 0 -0.021 -0.212
+              rotation 0 -1 0 1.9
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
-                    position 0.15355062045241338
                     axis 0 -1 0
-                    anchor 0.288 -0.02 0
+                    anchor 0 -0.021 -0.245
                     dampingConstant 0.01
                   }
-                  endPoint SolidReference {
-                    solidName "right_front_long_leg"
+                  device [
+                    RotationalMotor {
+                      name "left_wheel_motor"
+                      maxVelocity 50
+                      maxTorque 6
+                    }
+                    PositionSensor {
+                      name "left_wheel_ps"
+                    }
+                  ]
+                  endPoint DEF right_wheel Solid {
+                    translation 0 -0.021 -0.245
+                    rotation 1 0 0 1.5707996938995747
+                    children [
+                      DEF right_wheel Shape {
+                        appearance PBRAppearance {
+                        }
+                        geometry Cylinder {
+                          height 0.02
+                          radius 0.07
+                        }
+                      }
+                    ]
+                    boundingObject USE right_wheel
+                    physics Physics {
+                    }
                   }
                 }
                 DEF right_long_leg Group {
                   children [
                     Pose {
-                      translation 0.288 0 0
+                      translation 0 0 -0.245
                       rotation 1 0 0 1.5707996938995747
                       children [
                         Shape {
@@ -688,7 +537,7 @@ DEF Wheelbipe_Robot Robot {
                       ]
                     }
                     Pose {
-                      translation 0.144 0 0
+                      translation 0 0 -0.1225
                       children [
                         Shape {
                           appearance PBRAppearance {
@@ -697,7 +546,7 @@ DEF Wheelbipe_Robot Robot {
                             metalness 0.5
                           }
                           geometry Box {
-                            size 0.288 0.02 0.04
+                            size 0.04 0.02 0.245
                           }
                         }
                       ]
@@ -724,14 +573,14 @@ DEF Wheelbipe_Robot Robot {
               name "right_back_long_leg"
               boundingObject USE right_long_leg
               physics Physics {
-                density 1000
               }
             }
           }
-          DEF right_back_short_leg Group {
+          DEF left_back_short_leg Group {
             children [
               Pose {
-                translation 0.075 0 0
+                translation 0 0 -0.106
+                rotation 0 1 0 0
                 children [
                   Shape {
                     appearance PBRAppearance {
@@ -740,13 +589,13 @@ DEF Wheelbipe_Robot Robot {
                       metalness 0.5
                     }
                     geometry Box {
-                      size 0.15 0.02 0.05
+                      size 0.05 0.02 0.212
                     }
                   }
                 ]
               }
               Pose {
-                translation 0.15 0 0
+                translation 0 0 -0.212
                 rotation 1 0 0 1.5707996938995747
                 children [
                   Shape {
@@ -782,85 +631,59 @@ DEF Wheelbipe_Robot Robot {
           }
         ]
         name "solid(1)"
-        boundingObject USE right_back_short_leg
+        boundingObject USE left_back_short_leg
         physics Physics {
-          density 1000
         }
       }
     }
-    DEF right_front_hinge HingeJoint {
+    DEF left_front_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position -0.0564527
-        axis 0 -1 0
-        anchor 0.075 -0.23 0
-        minStop -1.4
-        maxStop 0.175
+        position -1
+        axis 0 1 0
+        anchor 0 0.25 0
+        minStop -2.6
+        maxStop -0.5
         dampingConstant 0.02
       }
       device [
         RotationalMotor {
-          name "rf_motor"
+          name "lf_motor"
           maxTorque 17.5
         }
         PositionSensor {
-          name "rf_ps"
+          name "lf_ps"
         }
       ]
       endPoint Solid {
-        translation 0.075 -0.23 0
-        rotation 0 -1 0 0.4055189999999944
+        translation 0 0.25 0
+        rotation 0 -1 0 0.9999999999999998
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position 0.04211394618809483
-              axis 0 1 0
-              anchor 0.15 -0.02 0
+              position -1.9
+              axis 0 -1 0
+              anchor 0 -0.02 -0.07
               dampingConstant 0.01
             }
             endPoint Solid {
-              translation 0.15 -0.02 0
-              rotation 0 1 0 2.8092953071795863
+              translation 0 -0.02 -0.07
+              rotation 0 1 0 1.9
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
-                    position 2.1836416111901245
-                    axis 0 1 0
-                    anchor 0.288 -0.02 0
+                    position -0.026330893957605433
+                    axis 0 -1 0
+                    anchor 0 0.02 -0.212
                     dampingConstant 0.01
                   }
-                  device [
-                    PositionSensor {
-                      name "right_wheel_ps"
-                    }
-                    RotationalMotor {
-                      name "right_wheel_motor"
-                      maxVelocity 50
-                      maxTorque 6
-                    }
-                  ]
-                  endPoint DEF right_wheel Solid {
-                    translation 0.288 -0.02 0
-                    rotation -0.3446990079373842 0.6637690152846094 0.6637720152846781 2.4777062513257113
-                    children [
-                      DEF right_wheel Shape {
-                        appearance PBRAppearance {
-                        }
-                        geometry Cylinder {
-                          height 0.02
-                          radius 0.07
-                        }
-                      }
-                    ]
-                    boundingObject USE right_wheel
-                    physics Physics {
-                      density 1000
-                    }
+                  endPoint SolidReference {
+                    solidName "left_back_long_leg"
                   }
                 }
-                DEF right_long_leg Group {
+                DEF left_long_leg Group {
                   children [
                     Pose {
-                      translation 0.288 0 0
+                      translation 0 0 -0.212
                       rotation 1 0 0 1.5707996938995747
                       children [
                         Shape {
@@ -871,13 +694,13 @@ DEF Wheelbipe_Robot Robot {
                           }
                           geometry Cylinder {
                             height 0.02
-                            radius 0.02
+                            radius 0.012
                           }
                         }
                       ]
                     }
                     Pose {
-                      translation 0.144 0 0
+                      translation 0 0 -0.106
                       children [
                         Shape {
                           appearance PBRAppearance {
@@ -886,7 +709,7 @@ DEF Wheelbipe_Robot Robot {
                             metalness 0.5
                           }
                           geometry Box {
-                            size 0.288 0.02 0.04
+                            size 0.024 0.02 0.212
                           }
                         }
                       ]
@@ -902,7 +725,7 @@ DEF Wheelbipe_Robot Robot {
                           }
                           geometry Cylinder {
                             height 0.02
-                            radius 0.02
+                            radius 0.012
                           }
                         }
                       ]
@@ -910,17 +733,16 @@ DEF Wheelbipe_Robot Robot {
                   ]
                 }
               ]
-              name "right_front_long_leg"
-              boundingObject USE right_long_leg
+              name "left_front_long_leg"
+              boundingObject USE left_long_leg
               physics Physics {
-                density 1000
               }
             }
           }
-          DEF right_front_short_leg Group {
+          DEF left_front_short_leg Group {
             children [
               Pose {
-                translation 0.075 0 0
+                translation 0 0 -0.035
                 children [
                   Shape {
                     appearance PBRAppearance {
@@ -929,13 +751,13 @@ DEF Wheelbipe_Robot Robot {
                       metalness 0.5
                     }
                     geometry Box {
-                      size 0.15 0.02 0.05
+                      size 0.03 0.02 0.07
                     }
                   }
                 ]
               }
               Pose {
-                translation 0.15 0 0
+                translation 0 0 -0.07
                 rotation 1 0 0 1.5707996938995747
                 children [
                   Shape {
@@ -946,7 +768,7 @@ DEF Wheelbipe_Robot Robot {
                     }
                     geometry Cylinder {
                       height 0.02
-                      radius 0.025
+                      radius 0.015
                     }
                   }
                 ]
@@ -962,7 +784,7 @@ DEF Wheelbipe_Robot Robot {
                     }
                     geometry Cylinder {
                       height 0.02
-                      radius 0.025
+                      radius 0.015
                     }
                   }
                 ]
@@ -970,9 +792,170 @@ DEF Wheelbipe_Robot Robot {
             ]
           }
         ]
+        name "solid(2)"
+        boundingObject USE left_front_short_leg
+        physics Physics {
+        }
+      }
+    }
+    DEF right_front_hinge HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1
+        axis 0 -1 0
+        anchor 0 -0.252 0
+        minStop 0.5
+        maxStop 2.6
+        dampingConstant 0.02
+      }
+      device [
+        RotationalMotor {
+          name "rf_motor"
+          maxTorque 40
+        }
+        PositionSensor {
+          name "rf_ps"
+        }
+      ]
+      endPoint Solid {
+        translation 0 -0.252 0
+        rotation 0 -1 0 0.9999999999999998
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              position 1.9
+              axis 0 1 0
+              anchor 0 0.021 -0.07
+              dampingConstant 0.01
+            }
+            endPoint Solid {
+              translation 0 0.021 -0.07
+              rotation 0 1 0 1.9
+              children [
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 1 0
+                    anchor 0 -0.021 -0.212
+                    dampingConstant 0.01
+                  }
+                  endPoint SolidReference {
+                    solidName "right_back_long_leg"
+                  }
+                }
+                DEF left_long_leg Group {
+                  children [
+                    Pose {
+                      translation 0 0 -0.212
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.012
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      translation 0 0 -0.106
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Box {
+                            size 0.024 0.02 0.212
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.012
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+              name "right_front_long_leg"
+              boundingObject USE left_long_leg
+              physics Physics {
+              }
+            }
+          }
+          DEF right_front_short_leg Group {
+            children [
+              Pose {
+                translation 0 0 -0.035
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Box {
+                      size 0.03 0.02 0.07
+                    }
+                  }
+                ]
+              }
+              Pose {
+                translation 0 0 -0.07
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.015
+                    }
+                  }
+                ]
+              }
+              Pose {
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.015
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+        name "solid(4)"
         boundingObject USE right_front_short_leg
         physics Physics {
-          density 1000
         }
       }
     }
@@ -1009,21 +992,7 @@ DEF Wheelbipe_Robot Robot {
           ]
         }
         Pose {
-          translation 0.075 0.22 0
-          rotation 1 0 0 1.5707996938995747
-          children [
-            Shape {
-              appearance PBRAppearance {
-              }
-              geometry Cylinder {
-                height 0.04
-                radius 0.03
-              }
-            }
-          ]
-        }
-        Pose {
-          translation -0.075 0.21 0
+          translation 0 0.21 0
           rotation 1 0 0 1.5707996938995747
           children [
             Shape {
@@ -1037,21 +1006,7 @@ DEF Wheelbipe_Robot Robot {
           ]
         }
         Pose {
-          translation -0.075 -0.22 0
-          rotation 1 0 0 1.5707996938995747
-          children [
-            Shape {
-              appearance PBRAppearance {
-              }
-              geometry Cylinder {
-                height 0.04
-                radius 0.03
-              }
-            }
-          ]
-        }
-        Pose {
-          translation 0.075 -0.21 0
+          translation 0 -0.21 0
           rotation 1 0 0 1.5707996938995747
           children [
             Shape {
@@ -1112,10 +1067,7 @@ DEF Wheelbipe_Robot Robot {
   name "wheelbipe_infantry"
   boundingObject USE wheelbipe_body
   physics Physics {
-    density 1000
   }
-  controller "parallelWheelBipe_controller"
+  controller "<none>"
   selfCollision TRUE
-}
-parallelWheelBipe {
 }
