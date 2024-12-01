@@ -10,8 +10,8 @@ WorldInfo {
   basicTimeStep 2
 }
 Viewpoint {
-  orientation 0.13007417786657346 0.9892986886968127 0.06609699535608124 0.1831525255642553
-  position -2.152563644841855 0.6805981203919149 0.9709561692581191
+  orientation 0.12990061309728376 0.17956929758871026 -0.9751311184043134 1.0490541427300617
+  position -2.860508342465224 4.522367212188748 1.47311794136572
 }
 TexturedBackground {
 }
@@ -148,7 +148,7 @@ DEF step1 Solid {
   name "solid(3)"
   boundingObject USE step1
 }
-DEF Wheelbipe_Robot Robot {
+DEF Wheelbipe_Robot_Gap Robot {
   translation 0.5 0.5 0.5
   rotation 0 0 1 1.5708
   children [
@@ -169,7 +169,7 @@ DEF Wheelbipe_Robot Robot {
       }
       endPoint DEF guideWheel Solid {
         translation -0.23 0.11 -0.04
-        rotation 1 0 0 1.5707996938995747
+        rotation 1 0 0 1.5707996938995745
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -193,7 +193,7 @@ DEF Wheelbipe_Robot Robot {
       }
       endPoint DEF guideWheel Solid {
         translation 0.23 0.11 -0.04
-        rotation 1 0 0 1.5707996938995747
+        rotation 1 0 0 1.5707996938995745
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -217,7 +217,7 @@ DEF Wheelbipe_Robot Robot {
       }
       endPoint DEF guideWheel Solid {
         translation -0.23 -0.11 -0.04
-        rotation 1 0 0 1.5707996938995747
+        rotation 1 0 0 1.5707996938995745
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -241,7 +241,7 @@ DEF Wheelbipe_Robot Robot {
       }
       endPoint DEF guideWheel Solid {
         translation 0.23 -0.11 -0.04
-        rotation 1 0 0 1.5707996938995747
+        rotation 1 0 0 1.5707996938995745
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -268,10 +268,9 @@ DEF Wheelbipe_Robot Robot {
       jointParameters HingeJointParameters {
         position 0.9
         axis 0 1 0
-        anchor 0 0.23 0
+        anchor 0 0.231 0
         minStop -2
         maxStop 2
-        dampingConstant 0.02
       }
       device [
         RotationalMotor {
@@ -283,25 +282,23 @@ DEF Wheelbipe_Robot Robot {
         }
       ]
       endPoint Solid {
-        translation 0 0.23 0
+        translation 0 0.231 0
         rotation 0 1 0 0.9000000000000001
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
               position 1.9
               axis 0 -1 0
-              anchor 0 0.02 -0.212
-              dampingConstant 0.01
+              anchor 0 0.021 -0.212
             }
             endPoint Solid {
-              translation 0 0.02 -0.212
-              rotation 0 -1 0 1.9
+              translation 0 0.021 -0.212
+              rotation 0 -1 0 1.8999999999999997
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 1 0
-                    anchor 0 0.02 -0.245
-                    dampingConstant 0.01
+                    anchor 0 0.021 -0.245
                   }
                   device [
                     RotationalMotor {
@@ -314,8 +311,8 @@ DEF Wheelbipe_Robot Robot {
                     }
                   ]
                   endPoint DEF left_wheel Solid {
-                    translation 0 0.02 -0.245
-                    rotation 1 0 0 1.5707996938995747
+                    translation 0 0.021 -0.245
+                    rotation 1 0 0 1.5707996938995745
                     children [
                       DEF left_wheel Shape {
                         appearance PBRAppearance {
@@ -457,7 +454,6 @@ DEF Wheelbipe_Robot Robot {
         anchor 0 -0.231 0
         minStop -2
         maxStop 2
-        dampingConstant 0.02
       }
       device [
         RotationalMotor {
@@ -477,17 +473,15 @@ DEF Wheelbipe_Robot Robot {
               position -1.9
               axis 0 1 0
               anchor 0 -0.021 -0.212
-              dampingConstant 0.01
             }
             endPoint Solid {
               translation 0 -0.021 -0.212
-              rotation 0 -1 0 1.9
+              rotation 0 -1 0 1.8999999999999997
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 -1 0
                     anchor 0 -0.021 -0.245
-                    dampingConstant 0.01
                   }
                   device [
                     RotationalMotor {
@@ -501,7 +495,7 @@ DEF Wheelbipe_Robot Robot {
                   ]
                   endPoint DEF right_wheel Solid {
                     translation 0 -0.021 -0.245
-                    rotation 1 0 0 1.5707996938995747
+                    rotation 1 0 0 1.5707996938995745
                     children [
                       DEF right_wheel Shape {
                         appearance PBRAppearance {
@@ -640,10 +634,9 @@ DEF Wheelbipe_Robot Robot {
       jointParameters HingeJointParameters {
         position -1
         axis 0 1 0
-        anchor 0 0.25 0
+        anchor 0 0.252 0
         minStop -2.6
         maxStop -0.5
-        dampingConstant 0.02
       }
       device [
         RotationalMotor {
@@ -655,26 +648,24 @@ DEF Wheelbipe_Robot Robot {
         }
       ]
       endPoint Solid {
-        translation 0 0.25 0
+        translation 0 0.252 0
         rotation 0 -1 0 0.9999999999999998
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
               position -1.9
               axis 0 -1 0
-              anchor 0 -0.02 -0.07
-              dampingConstant 0.01
+              anchor 0 -0.021 -0.07
             }
             endPoint Solid {
-              translation 0 -0.02 -0.07
-              rotation 0 1 0 1.9
+              translation 0 -0.021 -0.07
+              rotation 0 1 0 1.8999999999999997
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     position -0.026330893957605433
                     axis 0 -1 0
-                    anchor 0 0.02 -0.212
-                    dampingConstant 0.01
+                    anchor 0 0.021 -0.212
                   }
                   endPoint SolidReference {
                     solidName "left_back_long_leg"
@@ -805,7 +796,6 @@ DEF Wheelbipe_Robot Robot {
         anchor 0 -0.252 0
         minStop 0.5
         maxStop 2.6
-        dampingConstant 0.02
       }
       device [
         RotationalMotor {
@@ -825,17 +815,15 @@ DEF Wheelbipe_Robot Robot {
               position 1.9
               axis 0 1 0
               anchor 0 0.021 -0.07
-              dampingConstant 0.01
             }
             endPoint Solid {
               translation 0 0.021 -0.07
-              rotation 0 1 0 1.9
+              rotation 0 1 0 1.8999999999999997
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 1 0
                     anchor 0 -0.021 -0.212
-                    dampingConstant 0.01
                   }
                   endPoint SolidReference {
                     solidName "right_back_long_leg"
@@ -1065,6 +1053,917 @@ DEF Wheelbipe_Robot Robot {
     }
   ]
   name "wheelbipe_infantry"
+  boundingObject USE wheelbipe_body
+  physics Physics {
+  }
+  controller "<none>"
+  selfCollision TRUE
+}
+DEF Wheelbipe_Robot Robot {
+  translation -0.44 0.5 0.5
+  rotation 0 0 1 1.5708
+  children [
+    Display {
+      width 128
+      height 128
+    }
+    Camera {
+      translation 0.15 0 0.25
+      rotation 1 0 0 3.141592653589793
+      width 512
+      height 512
+    }
+    DEF lb_guideWheel HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.23 0.11 -0.04
+      }
+      endPoint DEF guideWheel Solid {
+        translation -0.23 0.11 -0.04
+        rotation 1 0 0 1.5707996938995745
+        children [
+          DEF guideWheel Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.02
+            }
+          }
+        ]
+        name "lb_guideWheel"
+        boundingObject USE guideWheel
+        physics Physics {
+        }
+      }
+    }
+    DEF lf_guideWheel HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.23 0.11 -0.04
+      }
+      endPoint DEF guideWheel Solid {
+        translation 0.23 0.11 -0.04
+        rotation 1 0 0 1.5707996938995745
+        children [
+          DEF guideWheel Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.02
+            }
+          }
+        ]
+        name "lf_guideWheel"
+        boundingObject USE guideWheel
+        physics Physics {
+        }
+      }
+    }
+    DEF rb_guideWheel HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.23 -0.11 -0.04
+      }
+      endPoint DEF guideWheel Solid {
+        translation -0.23 -0.11 -0.04
+        rotation 1 0 0 1.5707996938995745
+        children [
+          DEF guideWheel Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.02
+            }
+          }
+        ]
+        name "rb_guideWheel"
+        boundingObject USE guideWheel
+        physics Physics {
+        }
+      }
+    }
+    DEF rf_guideWheel HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.23 -0.11 -0.04
+      }
+      endPoint DEF guideWheel Solid {
+        translation 0.23 -0.11 -0.04
+        rotation 1 0 0 1.5707996938995745
+        children [
+          DEF guideWheel Shape {
+            appearance PBRAppearance {
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.02
+            }
+          }
+        ]
+        name "rf_guideWheel"
+        boundingObject USE guideWheel
+        physics Physics {
+        }
+      }
+    }
+    Accelerometer {
+    }
+    InertialUnit {
+    }
+    Gyro {
+    }
+    DEF left_back_hinge HingeJoint {
+      jointParameters HingeJointParameters {
+        position 0.9
+        axis 0 1 0
+        anchor 0 0.23 0
+        minStop -2
+        maxStop 2
+      }
+      device [
+        RotationalMotor {
+          name "lb_motor"
+          maxTorque 17.5
+        }
+        PositionSensor {
+          name "lb_ps"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.23 0
+        rotation 0 1 0 0.9000000000000001
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              position 1.9
+              axis 0 -1 0
+              anchor 0 0.02 -0.212
+            }
+            endPoint Solid {
+              translation 0 0.02 -0.212
+              rotation 0 -1 0 1.8999999999999997
+              children [
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 1 0
+                    anchor 0 0.02 -0.245
+                  }
+                  device [
+                    RotationalMotor {
+                      name "left_wheel_motor"
+                      maxVelocity 50
+                      maxTorque 6
+                    }
+                    PositionSensor {
+                      name "left_wheel_ps"
+                    }
+                  ]
+                  endPoint DEF left_wheel Solid {
+                    translation 0 0.02 -0.245
+                    rotation 1 0 0 1.5707996938995745
+                    children [
+                      DEF left_wheel Shape {
+                        appearance PBRAppearance {
+                        }
+                        geometry Cylinder {
+                          height 0.02
+                          radius 0.07
+                        }
+                      }
+                    ]
+                    boundingObject USE left_wheel
+                    physics Physics {
+                    }
+                  }
+                }
+                DEF left_long_leg Group {
+                  children [
+                    Pose {
+                      translation 0 0 -0.245
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.02
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      translation 0 0 -0.1225
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Box {
+                            size 0.04 0.02 0.245
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.02
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+              name "left_back_long_leg"
+              boundingObject USE left_long_leg
+              physics Physics {
+              }
+            }
+          }
+          DEF left_back_short_leg Group {
+            children [
+              Pose {
+                translation 0 0 -0.106
+                rotation 0 1 0 0
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Box {
+                      size 0.05 0.02 0.212
+                    }
+                  }
+                ]
+              }
+              Pose {
+                translation 0 0 -0.212
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.025
+                    }
+                  }
+                ]
+              }
+              Pose {
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.025
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE left_back_short_leg
+        physics Physics {
+        }
+      }
+    }
+    DEF right_back_hinge HingeJoint {
+      jointParameters HingeJointParameters {
+        position -0.9
+        axis 0 -1 0
+        anchor 0 -0.23 0
+        minStop -2
+        maxStop 2
+      }
+      device [
+        RotationalMotor {
+          name "rb_motor"
+          maxTorque 40
+        }
+        PositionSensor {
+          name "rb_ps"
+        }
+      ]
+      endPoint Solid {
+        translation 0 -0.23 0
+        rotation 0 1 0 0.9000000000000001
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              position -1.9
+              axis 0 1 0
+              anchor 0 -0.02 -0.212
+            }
+            endPoint Solid {
+              translation 0 -0.02 -0.212
+              rotation 0 -1 0 1.8999999999999997
+              children [
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 -1 0
+                    anchor 0 -0.02 -0.245
+                  }
+                  device [
+                    RotationalMotor {
+                      name "left_wheel_motor"
+                      maxVelocity 50
+                      maxTorque 6
+                    }
+                    PositionSensor {
+                      name "left_wheel_ps"
+                    }
+                  ]
+                  endPoint DEF right_wheel Solid {
+                    translation 0 -0.02 -0.245
+                    rotation 1 0 0 1.5707996938995745
+                    children [
+                      DEF right_wheel Shape {
+                        appearance PBRAppearance {
+                        }
+                        geometry Cylinder {
+                          height 0.02
+                          radius 0.07
+                        }
+                      }
+                    ]
+                    boundingObject USE right_wheel
+                    physics Physics {
+                    }
+                  }
+                }
+                DEF right_long_leg Group {
+                  children [
+                    Pose {
+                      translation 0 0 -0.245
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.02
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      translation 0 0 -0.1225
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Box {
+                            size 0.04 0.02 0.245
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.02
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+              name "right_back_long_leg"
+              boundingObject USE right_long_leg
+              physics Physics {
+              }
+            }
+          }
+          DEF left_back_short_leg Group {
+            children [
+              Pose {
+                translation 0 0 -0.106
+                rotation 0 1 0 0
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Box {
+                      size 0.05 0.02 0.212
+                    }
+                  }
+                ]
+              }
+              Pose {
+                translation 0 0 -0.212
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.025
+                    }
+                  }
+                ]
+              }
+              Pose {
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.025
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE left_back_short_leg
+        physics Physics {
+        }
+      }
+    }
+    DEF left_front_hinge HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1
+        axis 0 1 0
+        anchor 0 0.25 0
+        minStop -2.6
+        maxStop -0.5
+      }
+      device [
+        RotationalMotor {
+          name "lf_motor"
+          maxTorque 17.5
+        }
+        PositionSensor {
+          name "lf_ps"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.25 0
+        rotation 0 -1 0 0.9999999999999998
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              position -1.9
+              axis 0 -1 0
+              anchor 0 -0.02 -0.07
+            }
+            endPoint Solid {
+              translation 0 -0.02 -0.07
+              rotation 0 1 0 1.8999999999999997
+              children [
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -0.026330893957605433
+                    axis 0 -1 0
+                    anchor 0 0.02 -0.212
+                  }
+                  endPoint SolidReference {
+                    solidName "left_back_long_leg"
+                  }
+                }
+                DEF left_long_leg Group {
+                  children [
+                    Pose {
+                      translation 0 0 -0.212
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.012
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      translation 0 0 -0.106
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Box {
+                            size 0.024 0.02 0.212
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.012
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+              name "left_front_long_leg"
+              boundingObject USE left_long_leg
+              physics Physics {
+              }
+            }
+          }
+          DEF left_front_short_leg Group {
+            children [
+              Pose {
+                translation 0 0 -0.035
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Box {
+                      size 0.03 0.02 0.07
+                    }
+                  }
+                ]
+              }
+              Pose {
+                translation 0 0 -0.07
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.015
+                    }
+                  }
+                ]
+              }
+              Pose {
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.015
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE left_front_short_leg
+        physics Physics {
+        }
+      }
+    }
+    DEF right_front_hinge HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1
+        axis 0 -1 0
+        anchor 0 -0.25 0
+        minStop 0.5
+        maxStop 2.6
+      }
+      device [
+        RotationalMotor {
+          name "rf_motor"
+          maxTorque 40
+        }
+        PositionSensor {
+          name "rf_ps"
+        }
+      ]
+      endPoint Solid {
+        translation 0 -0.25 0
+        rotation 0 -1 0 0.9999999999999998
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              position 1.9
+              axis 0 1 0
+              anchor 0 0.02 -0.07
+            }
+            endPoint Solid {
+              translation 0 0.02 -0.07
+              rotation 0 1 0 1.8999999999999997
+              children [
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 1 0
+                    anchor 0 -0.02 -0.212
+                  }
+                  endPoint SolidReference {
+                    solidName "right_back_long_leg"
+                  }
+                }
+                DEF left_long_leg Group {
+                  children [
+                    Pose {
+                      translation 0 0 -0.212
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.012
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      translation 0 0 -0.106
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Box {
+                            size 0.024 0.02 0.212
+                          }
+                        }
+                      ]
+                    }
+                    Pose {
+                      rotation 1 0 0 1.5707996938995747
+                      children [
+                        Shape {
+                          appearance PBRAppearance {
+                            baseColor 0 0 0
+                            roughness 0.5
+                            metalness 0.5
+                          }
+                          geometry Cylinder {
+                            height 0.02
+                            radius 0.012
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+              name "right_front_long_leg"
+              boundingObject USE left_long_leg
+              physics Physics {
+              }
+            }
+          }
+          DEF right_front_short_leg Group {
+            children [
+              Pose {
+                translation 0 0 -0.035
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Box {
+                      size 0.03 0.02 0.07
+                    }
+                  }
+                ]
+              }
+              Pose {
+                translation 0 0 -0.07
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.015
+                    }
+                  }
+                ]
+              }
+              Pose {
+                rotation 1 0 0 1.5707996938995747
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 0.5
+                      metalness 0.5
+                    }
+                    geometry Cylinder {
+                      height 0.02
+                      radius 0.015
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+        name "solid(4)"
+        boundingObject USE right_front_short_leg
+        physics Physics {
+        }
+      }
+    }
+    DEF wheelbipe_body Group {
+      children [
+        Pose {
+          translation -0.19 0 -0.04
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0.498039
+                roughness 0.5
+                metalness 0.5
+              }
+              geometry Box {
+                size 0.08 0.2 0.015
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0.19 0 -0.04
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 0.498039
+                roughness 0.5
+                metalness 0.5
+              }
+              geometry Box {
+                size 0.08 0.2 0.015
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0.21 0
+          rotation 1 0 0 1.5707996938995747
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.02
+                radius 0.03
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 -0.21 0
+          rotation 1 0 0 1.5707996938995747
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.02
+                radius 0.03
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0.07 0 0.2
+          rotation 0 1 0 1.5707996938995747
+          children [
+            Shape {
+              appearance PBRAppearance {
+                roughness 0.5
+                metalness 0.5
+              }
+              geometry Cylinder {
+                height 0.25
+                radius 0.03
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0 0 0.175
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0.666667 0
+                roughness 0.5
+                metalness 0.5
+              }
+              geometry Cylinder {
+                height 0.25
+                radius 0.08
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            roughness 0.5
+            metalness 0.5
+          }
+          geometry Box {
+            size 0.3 0.4 0.15
+          }
+        }
+      ]
+    }
+  ]
+  name "wheelbipe_infantry(1)"
   boundingObject USE wheelbipe_body
   physics Physics {
   }
