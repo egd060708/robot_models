@@ -49,8 +49,8 @@ int main(int argc, char **argv) {
   lqrCalculater<10, 4> lqr_calculate;
   State_Data_Classdef infantry_state((float)timeStep / 1000.);
   UserData_Classdef user_params;
-  Manipulator_Classdef right_manipulator(infantry_state.dt);
-  Manipulator_Classdef left_manipulator(infantry_state.dt);
+  ManipulatorP_Classdef right_manipulator(infantry_state.dt);
+  ManipulatorP_Classdef left_manipulator(infantry_state.dt);
   Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params);
   MPC_CALC mpcCal[2];
   modelFit<6, 6, 3> modelA;
@@ -261,8 +261,8 @@ int main(int argc, char **argv) {
       }*/
 
       //写入数据到绘图视窗并输出
-      float _data[6] = { mpcCal[0].getCompareState().getElement(0,0),mpcCal[0].getCompareState().getElement(1,0),mpcCal[0].getCompareState().getElement(2,0),mpcCal[0].getCompareState().getElement(3,0),mpcCal[0].getCompareState().getElement(4,0) ,mpcCal[0].getCompareState().getElement(5,0) };
-      dataDisp.sendCtrl(_data);
+      /*float _data[6] = { mpcCal[0].getCompareState().getElement(0,0),mpcCal[0].getCompareState().getElement(1,0),mpcCal[0].getCompareState().getElement(2,0),mpcCal[0].getCompareState().getElement(3,0),mpcCal[0].getCompareState().getElement(4,0) ,mpcCal[0].getCompareState().getElement(5,0) };
+      dataDisp.sendCtrl(_data);*/
   };
 
   // Enter here exit cleanup code.
