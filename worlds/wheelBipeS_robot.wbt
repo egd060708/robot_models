@@ -10,8 +10,8 @@ WorldInfo {
   basicTimeStep 2
 }
 Viewpoint {
-  orientation 0.12990061309728376 0.17956929758871026 -0.9751311184043134 1.0490541427300617
-  position -2.860508342465224 4.522367212188748 1.47311794136572
+  orientation 0.17757365079016588 0.36625446056303645 -0.9134140729497939 0.809619221986839
+  position -2.415410457480002 2.0007341026153167 1.3118801718224047
 }
 TexturedBackground {
 }
@@ -169,7 +169,7 @@ DEF Wheelbipe_Robot_Gap Robot {
       }
       endPoint DEF guideWheel Solid {
         translation -0.23 0.11 -0.04
-        rotation 1 0 0 1.5707996938995745
+        rotation 1 0 0 1.5707996938995747
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -193,7 +193,7 @@ DEF Wheelbipe_Robot_Gap Robot {
       }
       endPoint DEF guideWheel Solid {
         translation 0.23 0.11 -0.04
-        rotation 1 0 0 1.5707996938995745
+        rotation 1 0 0 1.5707996938995747
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -217,7 +217,7 @@ DEF Wheelbipe_Robot_Gap Robot {
       }
       endPoint DEF guideWheel Solid {
         translation -0.23 -0.11 -0.04
-        rotation 1 0 0 1.5707996938995745
+        rotation 1 0 0 1.5707996938995747
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -241,7 +241,7 @@ DEF Wheelbipe_Robot_Gap Robot {
       }
       endPoint DEF guideWheel Solid {
         translation 0.23 -0.11 -0.04
-        rotation 1 0 0 1.5707996938995745
+        rotation 1 0 0 1.5707996938995747
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -266,7 +266,7 @@ DEF Wheelbipe_Robot_Gap Robot {
     }
     DEF left_back_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position 0.9
+        position 1.2
         axis 0 1 0
         anchor 0 0.231 0
         minStop -2
@@ -283,17 +283,17 @@ DEF Wheelbipe_Robot_Gap Robot {
       ]
       endPoint Solid {
         translation 0 0.231 0
-        rotation 0 1 0 0.9000000000000001
+        rotation 0 1 0 1.2
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position 1.9
+              position 2.4
               axis 0 -1 0
               anchor 0 0.021 -0.212
             }
             endPoint Solid {
               translation 0 0.021 -0.212
-              rotation 0 -1 0 1.8999999999999997
+              rotation 0 -1 0 2.4
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
@@ -304,7 +304,6 @@ DEF Wheelbipe_Robot_Gap Robot {
                     RotationalMotor {
                       name "left_wheel_motor"
                       maxVelocity 50
-                      maxTorque 6
                     }
                     PositionSensor {
                       name "left_wheel_ps"
@@ -312,7 +311,7 @@ DEF Wheelbipe_Robot_Gap Robot {
                   ]
                   endPoint DEF left_wheel Solid {
                     translation 0 0.021 -0.245
-                    rotation 1 0 0 1.5707996938995745
+                    rotation 1 0 0 1.5707996938995747
                     children [
                       DEF left_wheel Shape {
                         appearance PBRAppearance {
@@ -449,7 +448,7 @@ DEF Wheelbipe_Robot_Gap Robot {
     }
     DEF right_back_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position -0.9
+        position -1.2
         axis 0 -1 0
         anchor 0 -0.231 0
         minStop -2
@@ -466,17 +465,17 @@ DEF Wheelbipe_Robot_Gap Robot {
       ]
       endPoint Solid {
         translation 0 -0.231 0
-        rotation 0 1 0 0.9000000000000001
+        rotation 0 1 0 1.2
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position -1.9
+              position -2.4
               axis 0 1 0
               anchor 0 -0.021 -0.212
             }
             endPoint Solid {
               translation 0 -0.021 -0.212
-              rotation 0 -1 0 1.8999999999999997
+              rotation 0 -1 0 2.4
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
@@ -485,17 +484,16 @@ DEF Wheelbipe_Robot_Gap Robot {
                   }
                   device [
                     RotationalMotor {
-                      name "left_wheel_motor"
+                      name "right_wheel_motor"
                       maxVelocity 50
-                      maxTorque 6
                     }
                     PositionSensor {
-                      name "left_wheel_ps"
+                      name "right_wheel_ps"
                     }
                   ]
                   endPoint DEF right_wheel Solid {
                     translation 0 -0.021 -0.245
-                    rotation 1 0 0 1.5707996938995745
+                    rotation 1 0 0 1.5707996938995747
                     children [
                       DEF right_wheel Shape {
                         appearance PBRAppearance {
@@ -632,7 +630,7 @@ DEF Wheelbipe_Robot_Gap Robot {
     }
     DEF left_front_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position -1
+        position -1.2
         axis 0 1 0
         anchor 0 0.252 0
         minStop -2.6
@@ -641,7 +639,7 @@ DEF Wheelbipe_Robot_Gap Robot {
       device [
         RotationalMotor {
           name "lf_motor"
-          maxTorque 17.5
+          maxTorque 40
         }
         PositionSensor {
           name "lf_ps"
@@ -649,17 +647,17 @@ DEF Wheelbipe_Robot_Gap Robot {
       ]
       endPoint Solid {
         translation 0 0.252 0
-        rotation 0 -1 0 0.9999999999999998
+        rotation 0 -1 0 1.2
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position -1.9
+              position -2.4
               axis 0 -1 0
               anchor 0 -0.021 -0.07
             }
             endPoint Solid {
               translation 0 -0.021 -0.07
-              rotation 0 1 0 1.8999999999999997
+              rotation 0 1 0 2.4
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
@@ -791,7 +789,7 @@ DEF Wheelbipe_Robot_Gap Robot {
     }
     DEF right_front_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position 1
+        position 1.2
         axis 0 -1 0
         anchor 0 -0.252 0
         minStop 0.5
@@ -808,17 +806,17 @@ DEF Wheelbipe_Robot_Gap Robot {
       ]
       endPoint Solid {
         translation 0 -0.252 0
-        rotation 0 -1 0 0.9999999999999998
+        rotation 0 -1 0 1.2
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position 1.9
+              position 2.4
               axis 0 1 0
               anchor 0 0.021 -0.07
             }
             endPoint Solid {
               translation 0 0.021 -0.07
-              rotation 0 1 0 1.8999999999999997
+              rotation 0 1 0 2.4
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
@@ -1080,7 +1078,7 @@ DEF Wheelbipe_Robot Robot {
       }
       endPoint DEF guideWheel Solid {
         translation -0.23 0.11 -0.04
-        rotation 1 0 0 1.5707996938995745
+        rotation 1 0 0 1.5707996938995747
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -1104,7 +1102,7 @@ DEF Wheelbipe_Robot Robot {
       }
       endPoint DEF guideWheel Solid {
         translation 0.23 0.11 -0.04
-        rotation 1 0 0 1.5707996938995745
+        rotation 1 0 0 1.5707996938995747
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -1128,7 +1126,7 @@ DEF Wheelbipe_Robot Robot {
       }
       endPoint DEF guideWheel Solid {
         translation -0.23 -0.11 -0.04
-        rotation 1 0 0 1.5707996938995745
+        rotation 1 0 0 1.5707996938995747
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -1152,7 +1150,7 @@ DEF Wheelbipe_Robot Robot {
       }
       endPoint DEF guideWheel Solid {
         translation 0.23 -0.11 -0.04
-        rotation 1 0 0 1.5707996938995745
+        rotation 1 0 0 1.5707996938995747
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -1186,7 +1184,7 @@ DEF Wheelbipe_Robot Robot {
       device [
         RotationalMotor {
           name "lb_motor"
-          maxTorque 17.5
+          maxTorque 40
         }
         PositionSensor {
           name "lb_ps"
@@ -1204,7 +1202,7 @@ DEF Wheelbipe_Robot Robot {
             }
             endPoint Solid {
               translation 0 0.02 -0.212
-              rotation 0 -1 0 1.8999999999999997
+              rotation 0 -1 0 1.9
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
@@ -1215,7 +1213,6 @@ DEF Wheelbipe_Robot Robot {
                     RotationalMotor {
                       name "left_wheel_motor"
                       maxVelocity 50
-                      maxTorque 6
                     }
                     PositionSensor {
                       name "left_wheel_ps"
@@ -1223,7 +1220,7 @@ DEF Wheelbipe_Robot Robot {
                   ]
                   endPoint DEF left_wheel Solid {
                     translation 0 0.02 -0.245
-                    rotation 1 0 0 1.5707996938995745
+                    rotation 1 0 0 1.5707996938995747
                     children [
                       DEF left_wheel Shape {
                         appearance PBRAppearance {
@@ -1387,7 +1384,7 @@ DEF Wheelbipe_Robot Robot {
             }
             endPoint Solid {
               translation 0 -0.02 -0.212
-              rotation 0 -1 0 1.8999999999999997
+              rotation 0 -1 0 1.9
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
@@ -1396,17 +1393,16 @@ DEF Wheelbipe_Robot Robot {
                   }
                   device [
                     RotationalMotor {
-                      name "left_wheel_motor"
+                      name "right_wheel_motor"
                       maxVelocity 50
-                      maxTorque 6
                     }
                     PositionSensor {
-                      name "left_wheel_ps"
+                      name "right_wheel_ps"
                     }
                   ]
                   endPoint DEF right_wheel Solid {
                     translation 0 -0.02 -0.245
-                    rotation 1 0 0 1.5707996938995745
+                    rotation 1 0 0 1.5707996938995747
                     children [
                       DEF right_wheel Shape {
                         appearance PBRAppearance {
@@ -1552,7 +1548,7 @@ DEF Wheelbipe_Robot Robot {
       device [
         RotationalMotor {
           name "lf_motor"
-          maxTorque 17.5
+          maxTorque 40
         }
         PositionSensor {
           name "lf_ps"
@@ -1570,7 +1566,7 @@ DEF Wheelbipe_Robot Robot {
             }
             endPoint Solid {
               translation 0 -0.02 -0.07
-              rotation 0 1 0 1.8999999999999997
+              rotation 0 1 0 1.9
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
@@ -1729,7 +1725,7 @@ DEF Wheelbipe_Robot Robot {
             }
             endPoint Solid {
               translation 0 0.02 -0.07
-              rotation 0 1 0 1.8999999999999997
+              rotation 0 1 0 1.9
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {

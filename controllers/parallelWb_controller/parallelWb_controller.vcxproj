@@ -189,7 +189,7 @@
     <ClInclude Include="application\PIDmethod.h" />
     <ClInclude Include="application\state_data.h" />
     <ClInclude Include="application\Upper_Public.h" />
-    <ClInclude Include="application\user_data.h" />
+    <ClInclude Include="user_data.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -34,7 +34,7 @@ Robot {
       }
       endPoint DEF guideWheel Solid {
         translation -0.23 0.11 -0.04
-        rotation 1 0 0 1.5707996938995747
+        rotation 1 0 0 1.5707996938995745
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -58,7 +58,7 @@ Robot {
       }
       endPoint DEF guideWheel Solid {
         translation 0.23 0.11 -0.04
-        rotation 1 0 0 1.5707996938995747
+        rotation 1 0 0 1.5707996938995745
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -82,7 +82,7 @@ Robot {
       }
       endPoint DEF guideWheel Solid {
         translation -0.23 -0.11 -0.04
-        rotation 1 0 0 1.5707996938995747
+        rotation 1 0 0 1.5707996938995745
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -106,7 +106,7 @@ Robot {
       }
       endPoint DEF guideWheel Solid {
         translation 0.23 -0.11 -0.04
-        rotation 1 0 0 1.5707996938995747
+        rotation 1 0 0 1.5707996938995745
         children [
           DEF guideWheel Shape {
             appearance PBRAppearance {
@@ -133,7 +133,7 @@ Robot {
       jointParameters HingeJointParameters {
         position 1.2
         axis 0 1 0
-        anchor 0 0.231 0
+        anchor 0 0.23 0
         minStop -2
         maxStop 2
       }
@@ -147,23 +147,23 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0 0.231 0
+        translation 0 0.23 0
         rotation 0 1 0 1.2
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position 2.4
+              position 2.5
               axis 0 -1 0
-              anchor 0 0.021 -0.212
+              anchor 0 0.02 -0.212
             }
             endPoint Solid {
-              translation 0 0.021 -0.212
-              rotation 0 -1 0 2.4
+              translation 0 0.02 -0.212
+              rotation 0 -1 0 2.5
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 1 0
-                    anchor 0 0.021 -0.245
+                    anchor 0 0.02 -0.245
                   }
                   device [
                     RotationalMotor {
@@ -176,8 +176,8 @@ Robot {
                     }
                   ]
                   endPoint DEF left_wheel Solid {
-                    translation 0 0.021 -0.245
-                    rotation 1 0 0 1.5707996938995747
+                    translation 0 0.02 -0.245
+                    rotation 1 0 0 1.5707996938995745
                     children [
                       DEF left_wheel Shape {
                         appearance PBRAppearance {
@@ -314,9 +314,9 @@ Robot {
     }
     DEF right_back_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position -1.2
+        position -1.3
         axis 0 -1 0
-        anchor 0 -0.231 0
+        anchor 0 -0.23 0
         minStop -2
         maxStop 2
       }
@@ -330,23 +330,23 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0 -0.231 0
-        rotation 0 1 0 1.2
+        translation 0 -0.23 0
+        rotation 0 1 0 1.3
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position -2.4
+              position -2.5
               axis 0 1 0
-              anchor 0 -0.021 -0.212
+              anchor 0 -0.02 -0.212
             }
             endPoint Solid {
-              translation 0 -0.021 -0.212
-              rotation 0 -1 0 2.4
+              translation 0 -0.02 -0.212
+              rotation 0 -1 0 2.5
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 -1 0
-                    anchor 0 -0.021 -0.245
+                    anchor 0 -0.02 -0.245
                   }
                   device [
                     RotationalMotor {
@@ -359,8 +359,8 @@ Robot {
                     }
                   ]
                   endPoint DEF right_wheel Solid {
-                    translation 0 -0.021 -0.245
-                    rotation 1 0 0 1.5707996938995747
+                    translation 0 -0.02 -0.245
+                    rotation 1 0 0 1.5707996938995745
                     children [
                       DEF right_wheel Shape {
                         appearance PBRAppearance {
@@ -497,9 +497,9 @@ Robot {
     }
     DEF left_front_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position -1.2
+        position -1
         axis 0 1 0
-        anchor 0 0.252 0
+        anchor 0 0.25 0
         minStop -2.6
         maxStop -0.5
       }
@@ -513,24 +513,24 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0 0.252 0
-        rotation 0 -1 0 1.2
+        translation 0 0.25 0
+        rotation 0 -1 0 1.3
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position -2.4
+              position -2.5
               axis 0 -1 0
-              anchor 0 -0.021 -0.07
+              anchor 0 -0.02 -0.07
             }
             endPoint Solid {
-              translation 0 -0.021 -0.07
-              rotation 0 1 0 2.4
+              translation 0 -0.02 -0.07
+              rotation 0 1 0 2.5
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     position -0.026330893957605433
                     axis 0 -1 0
-                    anchor 0 0.021 -0.212
+                    anchor 0 0.02 -0.212
                   }
                   endPoint SolidReference {
                     solidName "left_back_long_leg"
@@ -656,9 +656,9 @@ Robot {
     }
     DEF right_front_hinge HingeJoint {
       jointParameters HingeJointParameters {
-        position 1.2
+        position 1
         axis 0 -1 0
-        anchor 0 -0.252 0
+        anchor 0 -0.25 0
         minStop 0.5
         maxStop 2.6
       }
@@ -672,23 +672,23 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0 -0.252 0
-        rotation 0 -1 0 1.2
+        translation 0 -0.25 0
+        rotation 0 -1 0 1.3
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
-              position 2.4
+              position 2.5
               axis 0 1 0
-              anchor 0 0.021 -0.07
+              anchor 0 0.02 -0.07
             }
             endPoint Solid {
-              translation 0 0.021 -0.07
-              rotation 0 1 0 2.4
+              translation 0 0.02 -0.07
+              rotation 0 1 0 2.5
               children [
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 1 0
-                    anchor 0 -0.021 -0.212
+                    anchor 0 -0.02 -0.212
                   }
                   endPoint SolidReference {
                     solidName "right_back_long_leg"

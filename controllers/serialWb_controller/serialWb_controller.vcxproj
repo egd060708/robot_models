@@ -110,7 +110,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Libraries\eigen-3.4.0\install\include\eigen3;D:\Git_Project\github\WheelBipe_Simulate\libs\observer\KelmanFilter\Cpp\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;D:\Libraries\qpOASES-stable-3.2\install\include\qpOASES;D:\Libraries\qpOASES-stable-3.2\install\include;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -154,9 +154,28 @@
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Supervisor.cpp" />
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\TouchSensor.cpp" />
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\VacuumGripper.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\BLASReplacement.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Bounds.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Constraints.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Flipper.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Indexlist.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\LAPACKReplacement.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Matrices.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\MessageHandling.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Options.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\OQPinterface.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblem.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblemB.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SolutionAnalysis.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SparseSolver.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblem.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblemSchur.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SubjectTo.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Utils.cpp" />
     <ClCompile Include="serialWb_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\libs\observer\KelmanFilter\Cpp\include\kelmanFilter.h" />
     <ClInclude Include="..\parallelWb_controller\application\dataDisplay.h" />
     <ClInclude Include="..\parallelWb_controller\application\lqrCalculater.h" />
     <ClInclude Include="..\parallelWb_controller\application\manipulator.h" />
@@ -167,7 +186,7 @@
     <ClInclude Include="..\parallelWb_controller\application\PIDmethod.h" />
     <ClInclude Include="..\parallelWb_controller\application\state_data.h" />
     <ClInclude Include="..\parallelWb_controller\application\Upper_Public.h" />
-    <ClInclude Include="..\parallelWb_controller\application\user_data.h" />
+    <ClInclude Include="user_data.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

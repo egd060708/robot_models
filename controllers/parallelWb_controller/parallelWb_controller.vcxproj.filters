@@ -202,10 +202,10 @@
     <ClInclude Include="application\Upper_Public.h">
       <Filter>application</Filter>
     </ClInclude>
-    <ClInclude Include="application\user_data.h">
+    <ClInclude Include="..\..\..\..\libs\observer\KelmanFilter\Cpp\include\kelmanFilter.h">
       <Filter>application</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\libs\observer\KelmanFilter\Cpp\include\kelmanFilter.h">
+    <ClInclude Include="user_data.h">
       <Filter>application</Filter>
     </ClInclude>
   </ItemGroup>

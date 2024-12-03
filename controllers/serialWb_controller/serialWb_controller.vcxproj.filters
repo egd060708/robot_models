@@ -104,6 +104,60 @@
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Accelerometer.cpp">
       <Filter>webotsLib</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\BLASReplacement.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Bounds.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Constraints.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Flipper.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Indexlist.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\LAPACKReplacement.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Matrices.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\MessageHandling.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Options.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\OQPinterface.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblem.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblemB.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SolutionAnalysis.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SparseSolver.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblem.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblemSchur.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SubjectTo.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Utils.cpp">
+      <Filter>qpOASES</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="webotsLib">
@@ -111,6 +165,9 @@
     </Filter>
     <Filter Include="application">
       <UniqueIdentifier>{c2cb692f-41e3-4ddc-9c27-6a0837dc8154}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qpOASES">
+      <UniqueIdentifier>{e3afdb2e-df01-4014-825c-34cd13ea9622}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -144,7 +201,10 @@
     <ClInclude Include="..\parallelWb_controller\application\Upper_Public.h">
       <Filter>application</Filter>
     </ClInclude>
-    <ClInclude Include="..\parallelWb_controller\application\user_data.h">
+    <ClInclude Include="user_data.h">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libs\observer\KelmanFilter\Cpp\include\kelmanFilter.h">
       <Filter>application</Filter>
     </ClInclude>
   </ItemGroup>
