@@ -110,7 +110,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Libraries\eigen-3.4.0\install\include\eigen3;D:\Git_Project\github\WheelBipe_Simulate\libs\observer\KelmanFilter\Cpp\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;D:\Libraries\qpOASES-stable-3.2\install\include\qpOASES;D:\Libraries\qpOASES-stable-3.2\install\include;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git_Project\github\WheelBipe_Simulate\libs\other\Webots\include;D:\Libraries\eigen-3.4.0\install\include\eigen3;D:\Git_Project\github\WheelBipe_Simulate\libs\observer\KelmanFilter\Cpp\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;D:\Libraries\qpOASES-stable-3.2\install\include\qpOASES;D:\Libraries\qpOASES-stable-3.2\install\include;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

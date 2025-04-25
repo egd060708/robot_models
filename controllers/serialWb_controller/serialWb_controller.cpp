@@ -21,7 +21,8 @@
 #include "state_data.h"
 #include "manipulator.h"
 #include "manipulator_controller.h"
-#include "dataDisplay.h"
+//#include "dataDisplay.h"
+#include "vofaTransmit.h"
 
 // All the webots classes are defined in the "webots" namespace
 using namespace webots;
@@ -86,8 +87,9 @@ int main(int argc, char** argv) {
     Camera* camera = robot->getCamera("camera");
     Display* draw = robot->getDisplay("display");
 
-    dataDisplay<6> dataDisp(draw);
+    //dataDisplay<6> dataDisp(draw);
     // Asuwave_Channel asu_test;
+    VOFA vofa("vjs.exe");
 
     keyboard->enable(timeStep);
     /*camera->enable(timeStep);*/
@@ -130,6 +132,7 @@ int main(int argc, char** argv) {
         bool y_speed_get = false;
         bool z_speed_get = false;
         float y_speed_max = 2.0;
+        double t = robot->getTime();
 
         int key = keyboard->getKey();
         while (key > 0)
@@ -137,7 +140,7 @@ int main(int argc, char** argv) {
             switch (key)
             {
             case 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.15; y_speed_max = 4.5; }
-                    else { target_yspeed += 0.015; y_speed_max = 2.0; }
+                    else { target_yspeed += 0.015; y_speed_max = 3.0; }
                     y_speed_get = true; break;
             case keyboard->SHIFT + 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.2; y_speed_max = 5.0; }
                                       else { target_yspeed += 0.02; y_speed_max = 3.0; }
@@ -192,6 +195,8 @@ int main(int argc, char** argv) {
 
         infantry_state.timeStamp_update((float)timeStep / 1000.);
         infantry_state.target_update(target_yspeed, target_zspeed);
+        left_manipulator.target_leg_angle(0.03);
+        right_manipulator.target_leg_angle(0.03);
         // Read the sensors:
           // Process sensor data here.
           /*轮子部分*/
@@ -228,17 +233,39 @@ int main(int argc, char** argv) {
         //left_manipulator.body_angle_update(infantry_state.current_pos.pitch,infantry_state.current_av.pitch);
         /*cout << left_manipulator.current_joint.wheel.dangle << ", " << left_manipulator.target_joint.wheel.dangle << endl;
         cout << right_manipulator.current_joint.wheel.dangle << ", " << right_manipulator.target_joint.wheel.dangle << endl;*/
+
         /*控制解算*/
         controller.Set_Enable_List(w_en, j_en);
         controller.controll_adjust();
 
-        /*控制量下发*/
-        right_wheel_motor->setTorque(upper::constrain(right_manipulator.torque_output.wheel, -10., 10.));
-        left_wheel_motor->setTorque(upper::constrain(left_manipulator.torque_output.wheel, -10., 10.));
-        rf_motor->setTorque(upper::constrain(right_manipulator.torque_output.f_joint, -40., 40.));
-        rb_motor->setTorque(upper::constrain(right_manipulator.torque_output.b_joint, -40., 40.));
-        lf_motor->setTorque(upper::constrain(left_manipulator.torque_output.f_joint, -40., 40.));
-        lb_motor->setTorque(upper::constrain(left_manipulator.torque_output.b_joint, -40., 40.));
+        if (t > 0.01)
+        {
+            /*控制量下发*/
+            right_wheel_motor->setTorque(upper::constrain(right_manipulator.torque_output.wheel, -10., 10.));
+            left_wheel_motor->setTorque(upper::constrain(left_manipulator.torque_output.wheel, -10., 10.));
+            rf_motor->setTorque(upper::constrain(right_manipulator.torque_output.f_joint, -40., 40.));
+            rb_motor->setTorque(upper::constrain(right_manipulator.torque_output.b_joint, -40., 40.));
+            lf_motor->setTorque(upper::constrain(left_manipulator.torque_output.f_joint, -40., 40.));
+            lb_motor->setTorque(upper::constrain(left_manipulator.torque_output.b_joint, -40., 40.));
+        }
+        
+
+        float data[DNUM];
+        data[0] = float(controller.lqr_target[1]);
+        data[1] = float(controller.lqr_target[3]);
+        data[2] = float(controller.lqr_current[1]);
+        data[3] = float(controller.lqr_current[3]);
+        data[4] = float(controller.lqr_target[4]);
+        data[5] = float(controller.lqr_target[6]);
+        data[6] = float(controller.lqr_current[4]);
+        data[7] = float(controller.lqr_current[6]);
+        data[8] = float(right_manipulator.torque_output.wheel);
+        data[9] = float(left_manipulator.torque_output.wheel);
+        data[10] = float(right_manipulator.torque_output.f_joint);
+        data[11] = float(right_manipulator.torque_output.b_joint);
+        data[12] = float(left_manipulator.torque_output.f_joint);
+        data[13] = float(left_manipulator.torque_output.b_joint);
+        vofa.dataTransmit(data, 5);
     };
 
     // Enter here exit cleanup code.
