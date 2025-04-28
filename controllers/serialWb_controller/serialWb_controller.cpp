@@ -57,17 +57,20 @@ int main(int argc, char** argv) {
     ManipulatorS_Classdef left_manipulator(infantry_state.dt);
     Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params, ctrlMode::MPC_);
     //qpoasesInterface mpcCal(10,4,4,0,25, PL_NONE);// qpOASES
-    tinympcInterface mpcCal(10, 4, 4, 0, 10, 0);// tinyMPC
+    tinympcInterface mpcCal(10, 4, 4, 0, 10, 1, 0);// tinyMPC
     mpcCal.setRegularisation(0.5);
     //quadprogInterface mpcCal(10, 4, 4, 0, 25);//qp++
     modelFit<10, 10, 3> modelA;
     modelFit<10, 4, 3> modelB;
+    modelFit<4, 10, 3> modelK;
+    modelFit<10, 10, 3> modelP;
     right_manipulator.Init(RF_JOINT_OFFSET, RB_JOINT_OFFSET, F_JOINT_MAX, F_JOINT_MIN, B_JOINT_MAX, B_JOINT_MIN);
     left_manipulator.Init(LF_JOINT_OFFSET, LB_JOINT_OFFSET, F_JOINT_MAX, F_JOINT_MIN, B_JOINT_MAX, B_JOINT_MIN);
     controller.Load_Lqr_Controller(&lqr_calculate);
     controller.Load_Wheel_SubController(&wheel_subController);
     controller.Load_Joint_SubController(joint_subController);
     controller.Load_Mpc_Controller(&mpcCal, &modelA, &modelB);
+    controller.Load_Lqr_KP(&modelK, &modelP);
     controller.Init();//控制器最后初始化
     bool w_en[6] = { true,true,true,true,true };
     bool j_en[7] = { true,true,true,true,true,true,true };
@@ -145,11 +148,11 @@ int main(int argc, char** argv) {
         {
             switch (key)
             {
-            case 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.15; y_speed_max = 4.5; }
+            case 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.15; y_speed_max = 2.5; }
                     else { target_yspeed += 0.015; y_speed_max = 2.0; }
                     y_speed_get = true; break;
-            case keyboard->SHIFT + 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.2; y_speed_max = 5.0; }
-                                      else { target_yspeed += 0.02; y_speed_max = 3.0; }
+            case keyboard->SHIFT + 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.2; y_speed_max = 3.0; }
+                                      else { target_yspeed += 0.02; y_speed_max = 2.5; }
                                       y_speed_get = true; break;
             case 'S': target_yspeed -= 0.005, y_speed_max = 2.0, y_speed_get = true; break;
             case keyboard->SHIFT + 'S': target_yspeed -= 0.008, y_speed_max = 3.0, y_speed_get = true; break;
@@ -201,8 +204,8 @@ int main(int argc, char** argv) {
 
         infantry_state.timeStamp_update((float)timeStep / 1000.);
         infantry_state.target_update(target_yspeed, target_zspeed);
-        left_manipulator.target_leg_angle(0.1);
-        right_manipulator.target_leg_angle(0.1);
+        left_manipulator.target_leg_angle(0.125);
+        right_manipulator.target_leg_angle(0.125);
         // Read the sensors:
           // Process sensor data here.
           /*轮子部分*/
@@ -247,12 +250,12 @@ int main(int argc, char** argv) {
         if (t > 0.1)
         {
             controller.controll_adjust();
-            /*std::cout << "rwt: " << right_manipulator.torque_output.wheel << std::endl;
+            std::cout << "rwt: " << right_manipulator.torque_output.wheel << std::endl;
             std::cout << "lwt: " << left_manipulator.torque_output.wheel << std::endl;
-            std::cout << "rfjt: " << right_manipulator.torque_output.f_joint << std::endl;
-            std::cout << "rbjt: " << right_manipulator.torque_output.b_joint << std::endl;
-            std::cout << "lfjt: " << left_manipulator.torque_output.f_joint << std::endl;
-            std::cout << "lbjt: " << left_manipulator.torque_output.b_joint << std::endl;*/
+            //std::cout << "rfjt: " << right_manipulator.torque_output.f_joint << std::endl;
+            //std::cout << "rbjt: " << right_manipulator.torque_output.b_joint << std::endl;
+            //std::cout << "lfjt: " << left_manipulator.torque_output.f_joint << std::endl;
+            //std::cout << "lbjt: " << left_manipulator.torque_output.b_joint << std::endl;
             /*控制量下发*/
             right_wheel_motor->setTorque(upper::constrain(right_manipulator.torque_output.wheel, -10., 10.));
             left_wheel_motor->setTorque(upper::constrain(left_manipulator.torque_output.wheel, -10., 10.));
