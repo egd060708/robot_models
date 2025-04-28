@@ -257,8 +257,8 @@ int main(int argc, char** argv) {
             //std::cout << "lfjt: " << left_manipulator.torque_output.f_joint << std::endl;
             //std::cout << "lbjt: " << left_manipulator.torque_output.b_joint << std::endl;
             /*控制量下发*/
-            right_wheel_motor->setTorque(upper::constrain(right_manipulator.torque_output.wheel, -10., 10.));
-            left_wheel_motor->setTorque(upper::constrain(left_manipulator.torque_output.wheel, -10., 10.));
+            right_wheel_motor->setTorque(upper::constrain(right_manipulator.torque_output.wheel, -5, 5));
+            left_wheel_motor->setTorque(upper::constrain(left_manipulator.torque_output.wheel, -5, 5));
             rf_motor->setTorque(upper::constrain(right_manipulator.torque_output.f_joint, -40., 40.));
             rb_motor->setTorque(upper::constrain(right_manipulator.torque_output.b_joint, -40., 40.));
             lf_motor->setTorque(upper::constrain(left_manipulator.torque_output.f_joint, -40., 40.));
