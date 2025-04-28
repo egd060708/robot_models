@@ -71,6 +71,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)</OutDir>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <IncludePath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include;$(IncludePath)</IncludePath>
+    <SourcePath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -110,7 +113,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Git_Project\github\WheelBipe_Simulate\libs\other\Webots\include;D:\Libraries\eigen-3.4.0\install\include\eigen3;D:\Git_Project\github\WheelBipe_Simulate\libs\observer\KelmanFilter\Cpp\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;D:\Libraries\qpOASES-stable-3.2\install\include\qpOASES;D:\Libraries\qpOASES-stable-3.2\install\include;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git_Project\github\WheelBipe_Simulate\libs\other\Webots\include;D:\Git_Project\github\WheelBipe_Simulate\libs\observer\KelmanFilter\Cpp\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -154,24 +158,33 @@
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Supervisor.cpp" />
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\TouchSensor.cpp" />
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\VacuumGripper.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\BLASReplacement.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Bounds.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Constraints.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Flipper.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Indexlist.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\LAPACKReplacement.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Matrices.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\MessageHandling.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Options.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\OQPinterface.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblem.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblemB.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SolutionAnalysis.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SparseSolver.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblem.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblemSchur.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SubjectTo.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Utils.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcCal.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcMatrix.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\BLASReplacement.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Bounds.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Constraints.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Flipper.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Indexlist.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\LAPACKReplacement.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Matrices.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\MessageHandling.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Options.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\OQPinterface.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\QProblem.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\QProblemB.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SolutionAnalysis.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SparseSolver.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SQProblem.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SQProblemSchur.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SubjectTo.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Utils.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES_interface.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\QuadProg\Array.cc" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\QuadProg\QuadProg++.cc" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\quadprog_interface.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\TinyMPC\admm.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\TinyMPC\tiny_api.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\tinyMpc_interface.cpp" />
     <ClCompile Include="serialWb_controller.cpp" />
   </ItemGroup>
   <ItemGroup>

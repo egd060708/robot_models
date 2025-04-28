@@ -104,58 +104,85 @@
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\Accelerometer.cpp">
       <Filter>webotsLib</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\BLASReplacement.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcCal.cpp">
+      <Filter>mpc_interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcMatrix.cpp">
+      <Filter>mpc_interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES_interface.cpp">
+      <Filter>mpc_interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\quadprog_interface.cpp">
+      <Filter>mpc_interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\tinyMpc_interface.cpp">
+      <Filter>mpc_interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\QuadProg\Array.cc">
+      <Filter>QuadProg++</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\QuadProg\QuadProg++.cc">
+      <Filter>QuadProg++</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\TinyMPC\admm.cpp">
+      <Filter>tinyMpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\TinyMPC\tiny_api.cpp">
+      <Filter>tinyMpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\BLASReplacement.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Bounds.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Bounds.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Constraints.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Constraints.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Flipper.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Flipper.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Indexlist.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Indexlist.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\LAPACKReplacement.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\LAPACKReplacement.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Matrices.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Matrices.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\MessageHandling.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\MessageHandling.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Options.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Options.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\OQPinterface.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\OQPinterface.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblem.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\QProblem.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\QProblemB.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\QProblemB.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SolutionAnalysis.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SolutionAnalysis.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SparseSolver.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SparseSolver.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblem.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SQProblem.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SQProblemSchur.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SQProblemSchur.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\SubjectTo.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\SubjectTo.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Libraries\qpOASES-stable-3.2\qpOASES-stable-3.2\src\Utils.cpp">
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Utils.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,7 +194,16 @@
       <UniqueIdentifier>{c2cb692f-41e3-4ddc-9c27-6a0837dc8154}</UniqueIdentifier>
     </Filter>
     <Filter Include="qpOASES">
-      <UniqueIdentifier>{e3afdb2e-df01-4014-825c-34cd13ea9622}</UniqueIdentifier>
+      <UniqueIdentifier>{71885762-b9f3-45d5-be3b-70eb6487c3ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mpc_interface">
+      <UniqueIdentifier>{e1e70164-2d73-4e81-9180-9080e234132e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyMpc">
+      <UniqueIdentifier>{7f4de342-a626-4eca-b28f-23fe590194bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="QuadProg++">
+      <UniqueIdentifier>{249edacf-def4-4945-84c7-a00eff29b714}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

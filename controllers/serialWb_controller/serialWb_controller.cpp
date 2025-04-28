@@ -23,6 +23,9 @@
 #include "manipulator_controller.h"
 //#include "dataDisplay.h"
 #include "vofaTransmit.h"
+#include "qpOASES_interface.h"
+#include "tinyMpc_interface.h"
+//#include "quadprog_interface.h"
 
 // All the webots classes are defined in the "webots" namespace
 using namespace webots;
@@ -52,16 +55,18 @@ int main(int argc, char** argv) {
     UserData_Classdef user_params;
     ManipulatorS_Classdef right_manipulator(infantry_state.dt);
     ManipulatorS_Classdef left_manipulator(infantry_state.dt);
-    Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params);
-    MPC_CALC mpcCal[2];
-    modelFit<6, 6, 3> modelA;
-    modelFit<6, 3, 3> modelB;
+    Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params, ctrlMode::MPC_);
+    //qpoasesInterface mpcCal(10,4,4,1,25, PL_NONE);
+    tinympcInterface mpcCal(10, 4, 4, 1, 10, 0);
+    mpcCal.setRegularisation(0.5);
+    modelFit<10, 10, 3> modelA;
+    modelFit<10, 4, 3> modelB;
     right_manipulator.Init(RF_JOINT_OFFSET, RB_JOINT_OFFSET, F_JOINT_MAX, F_JOINT_MIN, B_JOINT_MAX, B_JOINT_MIN);
     left_manipulator.Init(LF_JOINT_OFFSET, LB_JOINT_OFFSET, F_JOINT_MAX, F_JOINT_MIN, B_JOINT_MAX, B_JOINT_MIN);
     controller.Load_Lqr_Controller(&lqr_calculate);
     controller.Load_Wheel_SubController(&wheel_subController);
     controller.Load_Joint_SubController(joint_subController);
-    controller.Load_Mpc_Controller(mpcCal, &modelA, &modelB);
+    controller.Load_Mpc_Controller(&mpcCal, &modelA, &modelB);
     controller.Init();//控制器最后初始化
     bool w_en[6] = { true,true,true,true,true };
     bool j_en[7] = { true,true,true,true,true,true,true };
@@ -89,7 +94,7 @@ int main(int argc, char** argv) {
 
     //dataDisplay<6> dataDisp(draw);
     // Asuwave_Channel asu_test;
-    VOFA vofa("vjs.exe");
+    //VOFA vofa("vjs.exe");
 
     keyboard->enable(timeStep);
     /*camera->enable(timeStep);*/
@@ -140,7 +145,7 @@ int main(int argc, char** argv) {
             switch (key)
             {
             case 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.15; y_speed_max = 4.5; }
-                    else { target_yspeed += 0.015; y_speed_max = 3.0; }
+                    else { target_yspeed += 0.015; y_speed_max = 2.0; }
                     y_speed_get = true; break;
             case keyboard->SHIFT + 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.2; y_speed_max = 5.0; }
                                       else { target_yspeed += 0.02; y_speed_max = 3.0; }
@@ -195,8 +200,8 @@ int main(int argc, char** argv) {
 
         infantry_state.timeStamp_update((float)timeStep / 1000.);
         infantry_state.target_update(target_yspeed, target_zspeed);
-        left_manipulator.target_leg_angle(0.03);
-        right_manipulator.target_leg_angle(0.03);
+        left_manipulator.target_leg_angle(0.12);
+        right_manipulator.target_leg_angle(0.12);
         // Read the sensors:
           // Process sensor data here.
           /*轮子部分*/
@@ -236,10 +241,17 @@ int main(int argc, char** argv) {
 
         /*控制解算*/
         controller.Set_Enable_List(w_en, j_en);
-        controller.controll_adjust();
+        /*controller.controll_adjust();*/
 
-        if (t > 0.01)
+        if (t > 0.1)
         {
+            controller.controll_adjust();
+            /*std::cout << "rwt: " << right_manipulator.torque_output.wheel << std::endl;
+            std::cout << "lwt: " << left_manipulator.torque_output.wheel << std::endl;
+            std::cout << "rfjt: " << right_manipulator.torque_output.f_joint << std::endl;
+            std::cout << "rbjt: " << right_manipulator.torque_output.b_joint << std::endl;
+            std::cout << "lfjt: " << left_manipulator.torque_output.f_joint << std::endl;
+            std::cout << "lbjt: " << left_manipulator.torque_output.b_joint << std::endl;*/
             /*控制量下发*/
             right_wheel_motor->setTorque(upper::constrain(right_manipulator.torque_output.wheel, -10., 10.));
             left_wheel_motor->setTorque(upper::constrain(left_manipulator.torque_output.wheel, -10., 10.));
@@ -250,7 +262,7 @@ int main(int argc, char** argv) {
         }
         
 
-        float data[DNUM];
+        /*float data[DNUM];
         data[0] = float(controller.lqr_target[1]);
         data[1] = float(controller.lqr_target[3]);
         data[2] = float(controller.lqr_current[1]);
@@ -265,7 +277,7 @@ int main(int argc, char** argv) {
         data[11] = float(right_manipulator.torque_output.b_joint);
         data[12] = float(left_manipulator.torque_output.f_joint);
         data[13] = float(left_manipulator.torque_output.b_joint);
-        vofa.dataTransmit(data, 5);
+        vofa.dataTransmit(data, 5);*/
     };
 
     // Enter here exit cleanup code.
