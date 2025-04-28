@@ -243,5 +243,11 @@
     <ClInclude Include="..\..\..\..\libs\observer\KelmanFilter\Cpp\include\kelmanFilter.h">
       <Filter>application</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\libs\controller_module\Mpc\Cpp\include\QuadProg\Array.hh">
+      <Filter>QuadProg++</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\libs\controller_module\Mpc\Cpp\include\QuadProg\QuadProg++.hh">
+      <Filter>QuadProg++</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

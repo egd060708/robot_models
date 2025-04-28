@@ -25,7 +25,7 @@
 #include "vofaTransmit.h"
 #include "qpOASES_interface.h"
 #include "tinyMpc_interface.h"
-//#include "quadprog_interface.h"
+#include "quadprog_interface.h"
 
 // All the webots classes are defined in the "webots" namespace
 using namespace webots;
@@ -56,9 +56,10 @@ int main(int argc, char** argv) {
     ManipulatorS_Classdef right_manipulator(infantry_state.dt);
     ManipulatorS_Classdef left_manipulator(infantry_state.dt);
     Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params, ctrlMode::MPC_);
-    //qpoasesInterface mpcCal(10,4,4,1,25, PL_NONE);
-    tinympcInterface mpcCal(10, 4, 4, 1, 10, 0);
+    //qpoasesInterface mpcCal(10,4,4,0,25, PL_NONE);// qpOASES
+    tinympcInterface mpcCal(10, 4, 4, 0, 10, 0);// tinyMPC
     mpcCal.setRegularisation(0.5);
+    //quadprogInterface mpcCal(10, 4, 4, 0, 25);//qp++
     modelFit<10, 10, 3> modelA;
     modelFit<10, 4, 3> modelB;
     right_manipulator.Init(RF_JOINT_OFFSET, RB_JOINT_OFFSET, F_JOINT_MAX, F_JOINT_MIN, B_JOINT_MAX, B_JOINT_MIN);
@@ -200,8 +201,8 @@ int main(int argc, char** argv) {
 
         infantry_state.timeStamp_update((float)timeStep / 1000.);
         infantry_state.target_update(target_yspeed, target_zspeed);
-        left_manipulator.target_leg_angle(0.12);
-        right_manipulator.target_leg_angle(0.12);
+        left_manipulator.target_leg_angle(0.1);
+        right_manipulator.target_leg_angle(0.1);
         // Read the sensors:
           // Process sensor data here.
           /*ÂÖ×Ó²¿·Ö*/

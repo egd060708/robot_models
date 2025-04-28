@@ -188,6 +188,8 @@
     <ClCompile Include="serialWb_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\libs\controller_module\Mpc\Cpp\include\QuadProg\Array.hh" />
+    <ClInclude Include="..\..\..\..\libs\controller_module\Mpc\Cpp\include\QuadProg\QuadProg++.hh" />
     <ClInclude Include="..\..\..\..\libs\observer\KelmanFilter\Cpp\include\kelmanFilter.h" />
     <ClInclude Include="..\parallelWb_controller\application\dataDisplay.h" />
     <ClInclude Include="..\parallelWb_controller\application\lqrCalculater.h" />
