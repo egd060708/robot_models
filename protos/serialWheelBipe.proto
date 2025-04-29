@@ -163,12 +163,12 @@ Robot {
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 1 0
-                    anchor 0 0.021 -0.245
+                    anchor 0 0.024 -0.245
                   }
                   device [
                     RotationalMotor {
                       name "left_wheel_motor"
-                      maxVelocity 50
+                      maxVelocity 100
                       maxTorque 10
                     }
                     PositionSensor {
@@ -176,15 +176,15 @@ Robot {
                     }
                   ]
                   endPoint DEF left_wheel Solid {
-                    translation 0 0.021 -0.245
+                    translation 0 0.024 -0.245
                     rotation 1 0 0 1.5707996938995747
                     children [
                       DEF left_wheel Shape {
                         appearance PBRAppearance {
                         }
                         geometry Cylinder {
-                          height 0.02
-                          radius 0.07
+                          height 0.025
+                          radius 0.05
                         }
                       }
                     ]
@@ -346,12 +346,12 @@ Robot {
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 -1 0
-                    anchor 0 -0.021 -0.245
+                    anchor 0 -0.024 -0.245
                   }
                   device [
                     RotationalMotor {
                       name "right_wheel_motor"
-                      maxVelocity 50
+                      maxVelocity 100
                       maxTorque 10
                     }
                     PositionSensor {
@@ -359,15 +359,15 @@ Robot {
                     }
                   ]
                   endPoint DEF right_wheel Solid {
-                    translation 0 -0.021 -0.245
+                    translation 0 -0.024 -0.245
                     rotation 1 0 0 1.5707996938995747
                     children [
                       DEF right_wheel Shape {
                         appearance PBRAppearance {
                         }
                         geometry Cylinder {
-                          height 0.02
-                          radius 0.07
+                          height 0.025
+                          radius 0.05
                         }
                       }
                     ]
