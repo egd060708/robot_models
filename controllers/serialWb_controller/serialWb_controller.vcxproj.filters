@@ -185,6 +185,9 @@
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Utils.cpp">
       <Filter>qpOASES</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\osqpE_interface.cpp">
+      <Filter>mpc_interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="webotsLib">
@@ -204,6 +207,9 @@
     </Filter>
     <Filter Include="QuadProg++">
       <UniqueIdentifier>{249edacf-def4-4945-84c7-a00eff29b714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{1e74b5d8-fa83-4f6c-ba9b-d0fe75c55194}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -237,9 +243,6 @@
     <ClInclude Include="..\parallelWb_controller\application\Upper_Public.h">
       <Filter>application</Filter>
     </ClInclude>
-    <ClInclude Include="user_data.h">
-      <Filter>application</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\libs\observer\KelmanFilter\Cpp\include\kelmanFilter.h">
       <Filter>application</Filter>
     </ClInclude>
@@ -248,6 +251,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\libs\controller_module\Mpc\Cpp\include\QuadProg\QuadProg++.hh">
       <Filter>QuadProg++</Filter>
+    </ClInclude>
+    <ClInclude Include="user_data.h">
+      <Filter>application</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

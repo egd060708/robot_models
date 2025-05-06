@@ -11,8 +11,8 @@ WorldInfo {
   basicTimeStep 2
 }
 Viewpoint {
-  orientation -0.13599262057622777 0.0027355405410861263 0.9907060734480022 3.284673278189368
-  position 2.502124033412063 -4.522066657066728 4.549296763144959
+  orientation 0.14659125697410888 0.006271484084484395 -0.9891772701928249 2.886496642691169
+  position 2.6066556291279173 -3.7534747850075982 5.344938555402026
   follow "wheelbipe_robot"
   followType "None"
 }
@@ -24,7 +24,7 @@ RectangleArena {
   floorSize 40 40
 }
 DEF 飞坡4 StraightRoadSegment {
-  translation -10 -3.5 0.2
+  translation -10 -3.3 0.2
   rotation 0 0 1 1.5707996938995747
   name "road(6)"
   width 2
@@ -152,7 +152,7 @@ DEF step1 Solid {
   boundingObject USE step1
 }
 serialWheelBipe {
-  translation -9.98 -12.03 0.230015
-  rotation 1.9459299999926315e-06 1.9459299999926315e-06 0.9999999999962135 1.5708
+  translation -10.02 -12.79 0.22002
+  rotation 1.629509999993911e-06 2.1951299999917973e-06 0.9999999999962632 1.5708
   controller "serialWb_controller"
 }

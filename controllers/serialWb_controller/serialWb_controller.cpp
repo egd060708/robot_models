@@ -26,6 +26,8 @@
 #include "qpOASES_interface.h"
 #include "tinyMpc_interface.h"
 #include "quadprog_interface.h"
+//#include "osqp_interface.h"
+#include "osqpE_interface.h"
 
 // All the webots classes are defined in the "webots" namespace
 using namespace webots;
@@ -57,9 +59,11 @@ int main(int argc, char** argv) {
     ManipulatorS_Classdef left_manipulator(infantry_state.dt);
     Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params, ctrlMode::MPC_);
     //qpoasesInterface mpcCal(10,4,4,0,25, PL_NONE);// qpOASES
-    tinympcInterface mpcCal(10, 4, 4, 0, 10, 1, 0);// tinyMPC
-    mpcCal.setRegularisation(0.5);
+    tinympcInterface mpcCal(10, 4, 4, 0, 10, 1., 1, 0);// tinyMPC
     //quadprogInterface mpcCal(10, 4, 4, 0, 25);//qp++
+    //osqpInterface mpcCal(10, 4, 4, 0, 5);//osqp
+    //osqpeInterface mpcCal(10, 4, 4, 0, 25);//osqp-eigen
+    //OsqpEigen::Solver solver;
     modelFit<10, 10, 3> modelA;
     modelFit<10, 4, 3> modelB;
     modelFit<4, 10, 3> modelK;
@@ -149,13 +153,13 @@ int main(int argc, char** argv) {
             switch (key)
             {
             case 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.15; y_speed_max = 2.5; }
-                    else { target_yspeed += 0.015; y_speed_max = 2.0; }
+                    else { target_yspeed += 0.15; y_speed_max = 2.0; }
                     y_speed_get = true; break;
             case keyboard->SHIFT + 'W': if (infantry_state.flags.leap_flag) { target_yspeed += 0.2; y_speed_max = 3.0; }
-                                      else { target_yspeed += 0.02; y_speed_max = 2.5; }
+                                      else { target_yspeed += 0.2; y_speed_max = 2.5; }
                                       y_speed_get = true; break;
-            case 'S': target_yspeed -= 0.005, y_speed_max = 2.0, y_speed_get = true; break;
-            case keyboard->SHIFT + 'S': target_yspeed -= 0.008, y_speed_max = 3.0, y_speed_get = true; break;
+            case 'S': target_yspeed -= 0.05, y_speed_max = 2.0, y_speed_get = true; break;
+            case keyboard->SHIFT + 'S': target_yspeed -= 0.08, y_speed_max = 3.0, y_speed_get = true; break;
             default:  break;
             }
             switch (key)
@@ -204,8 +208,16 @@ int main(int argc, char** argv) {
 
         infantry_state.timeStamp_update((float)timeStep / 1000.);
         infantry_state.target_update(target_yspeed, target_zspeed);
-        left_manipulator.target_leg_angle(0.125);
-        right_manipulator.target_leg_angle(0.125);
+        if (controller.ctrl_mode == MPC_)
+        {
+            left_manipulator.target_leg_angle(0.05);
+            right_manipulator.target_leg_angle(0.05);
+        }
+        else
+        {
+            left_manipulator.target_leg_angle(0.05);
+            right_manipulator.target_leg_angle(0.05);
+        }
         // Read the sensors:
           // Process sensor data here.
           /*轮子部分*/
@@ -222,6 +234,8 @@ int main(int argc, char** argv) {
 
         infantry_state.current_location_update(0, current_distance, 0);
         infantry_state.current_speed_update(0, current_speed, 0);
+        //std::cout << "Vref: " << target_yspeed << std::endl;
+        //std::cout << "Vcur: " << current_speed << std::endl;
         /*姿态部分*/
         const double* gyro = gyro_sensor->getValues();
         const double* eular = eular_sensor->getRollPitchYaw();
@@ -250,15 +264,15 @@ int main(int argc, char** argv) {
         if (t > 0.1)
         {
             controller.controll_adjust();
-            std::cout << "rwt: " << right_manipulator.torque_output.wheel << std::endl;
-            std::cout << "lwt: " << left_manipulator.torque_output.wheel << std::endl;
+            //std::cout << "rwt: " << right_manipulator.torque_output.wheel << std::endl;
+            //std::cout << "lwt: " << left_manipulator.torque_output.wheel << std::endl;
             //std::cout << "rfjt: " << right_manipulator.torque_output.f_joint << std::endl;
             //std::cout << "rbjt: " << right_manipulator.torque_output.b_joint << std::endl;
             //std::cout << "lfjt: " << left_manipulator.torque_output.f_joint << std::endl;
             //std::cout << "lbjt: " << left_manipulator.torque_output.b_joint << std::endl;
             /*控制量下发*/
-            right_wheel_motor->setTorque(upper::constrain(right_manipulator.torque_output.wheel, -5, 5));
-            left_wheel_motor->setTorque(upper::constrain(left_manipulator.torque_output.wheel, -5, 5));
+            right_wheel_motor->setTorque(upper::constrain(right_manipulator.torque_output.wheel, -4.5, 4.5));
+            left_wheel_motor->setTorque(upper::constrain(left_manipulator.torque_output.wheel, -4.5, 4.5));
             rf_motor->setTorque(upper::constrain(right_manipulator.torque_output.f_joint, -40., 40.));
             rb_motor->setTorque(upper::constrain(right_manipulator.torque_output.b_joint, -40., 40.));
             lf_motor->setTorque(upper::constrain(left_manipulator.torque_output.f_joint, -40., 40.));

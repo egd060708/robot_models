@@ -47,9 +47,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -72,8 +72,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)</OutDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Libraries\osqp063\include;D:\Libraries\osqp-eigen\include;D:\Libraries\osqp063\include\qdldl;D:\Libraries\osqp063\include\osqp;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include;$(IncludePath)</IncludePath>
     <SourcePath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source;$(SourcePath)</SourcePath>
+    <LibraryPath>D:\Libraries\osqp-eigen\bin;D:\Libraries\osqp-eigen\lib;D:\Libraries\osqp063\bin;D:\Libraries\osqp063\lib;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\bin;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -115,12 +116,13 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\Git_Project\github\WheelBipe_Simulate\libs\other\Webots\include;D:\Git_Project\github\WheelBipe_Simulate\libs\observer\KelmanFilter\Cpp\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(WEBOTS_HOME)/lib/controller</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;controller.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs;$(WEBOTS_HOME)/lib/controller</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;controller.lib;osqp.lib;OsqpEigend.lib;qdldl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -160,6 +162,7 @@
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\VacuumGripper.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcCal.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcMatrix.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\osqpE_interface.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\BLASReplacement.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Bounds.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\Constraints.cpp" />
