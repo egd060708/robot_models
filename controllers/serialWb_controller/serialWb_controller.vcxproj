@@ -72,9 +72,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)</OutDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>D:\Libraries\osqp063\include;D:\Libraries\osqp-eigen\include;D:\Libraries\osqp063\include\qdldl;D:\Libraries\osqp063\include\osqp;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\OsqpEigen\osqp;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\OsqpEigen\qdldl;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\OsqpEigen;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include;$(IncludePath)</IncludePath>
     <SourcePath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source;$(SourcePath)</SourcePath>
-    <LibraryPath>D:\Libraries\osqp-eigen\bin;D:\Libraries\osqp-eigen\lib;D:\Libraries\osqp063\bin;D:\Libraries\osqp063\lib;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\bin;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\bin\OsqpEigen;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs\OsqpEigen;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\bin;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs;$(LibraryPath)</LibraryPath>
+    <LinkIncremental />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -117,12 +118,15 @@
       <AdditionalIncludeDirectories>D:\Git_Project\github\WheelBipe_Simulate\libs\other\Webots\include;D:\Git_Project\github\WheelBipe_Simulate\libs\observer\KelmanFilter\Cpp\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs;$(WEBOTS_HOME)/lib/controller</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;controller.lib;osqp.lib;OsqpEigend.lib;qdldl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;controller.lib;osqp.lib;OsqpEigen.lib;qdldl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
