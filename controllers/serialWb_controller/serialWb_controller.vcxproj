@@ -72,9 +72,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)</OutDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\osqp063\osqp;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\osqp063\qdldl;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\OsqpEigen063;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\qpOASES;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\QuadProg;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\TinyMPC;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\osqp100\osqp;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\osqp100\qdldl;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\OsqpEigen100;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\qpOASES;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\QuadProg;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\TinyMPC;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\source\QuadProg;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\source\TinyMPC;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\source;$(SourcePath)</SourcePath>
-    <LibraryPath>$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\libs\osqp063;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\libs\OsqpEigen063;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\bin;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\libs;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\libs\osqp100;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\libs\OsqpEigen100;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\bin;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\libs;$(LibraryPath)</LibraryPath>
     <LinkIncremental />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -125,8 +125,9 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs;$(WEBOTS_HOME)/lib/controller</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;controller.lib;osqp.lib;OsqpEigen.lib;qdldl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\bin\OsqpEigen100;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\bin\osqp100;$(WEBOTS_HOME)/lib/controller</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;controller.lib;osqp.lib;OsqpEigen.lib;osqpstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>osqp.dll;OsqpEigen.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
