@@ -72,9 +72,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)</OutDir>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\osqp063\osqp;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\osqp063\qdldl;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\OsqpEigen063;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\include;$(IncludePath)</IncludePath>
-    <SourcePath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\qpOASES;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\QuadProg;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source\TinyMPC;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\source;$(SourcePath)</SourcePath>
-    <LibraryPath>D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs\osqp063;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs\OsqpEigen063;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\bin;D:\Git_Project\github\WheelBipe_Simulate\libs\controller_module\Mpc\Cpp\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\osqp063\osqp;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\osqp063\qdldl;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\OsqpEigen063;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\qpOASES;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\QuadProg;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include\TinyMPC;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\include;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\source\QuadProg;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\source\TinyMPC;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\source;$(SourcePath)</SourcePath>
+    <LibraryPath>$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\libs\osqp063;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\libs\OsqpEigen063;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\bin;$(ProjectDir)..\..\..\..\libs\controller_module\Mpc\Cpp\libs;$(LibraryPath)</LibraryPath>
     <LinkIncremental />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -115,7 +115,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Git_Project\github\WheelBipe_Simulate\libs\other\Webots\include;D:\Git_Project\github\WheelBipe_Simulate\libs\observer\KelmanFilter\Cpp\include;D:\Git_Project\github\WheelBipe_Simulate\webots\robot_modules\controllers\parallelWb_controller\application;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\libs\other\Webots\include;$(ProjectDir)..\..\..\..\libs\observer\KelmanFilter\Cpp\include;$(ProjectDir)..\parallelWb_controller\application;$(WEBOTS_HOME)/include/controller/c;$(WEBOTS_HOME)/include/controller/cpp</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WholeProgramOptimization>true</WholeProgramOptimization>
