@@ -208,9 +208,6 @@
     <Filter Include="QuadProg++">
       <UniqueIdentifier>{249edacf-def4-4945-84c7-a00eff29b714}</UniqueIdentifier>
     </Filter>
-    <Filter Include="libs">
-      <UniqueIdentifier>{1e74b5d8-fa83-4f6c-ba9b-d0fe75c55194}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\parallelWb_controller\application\dataDisplay.h">
