@@ -1,23 +1,25 @@
-/*! @file	model_fit.h
- *  @brief	Ä£ĞÍ¾ØÕóÉú³ÉÀàĞÍ
+ï»¿/*! @file	model_fit.h
+ *  @brief	æ¨¡å‹çŸ©é˜µç”Ÿæˆç±»å‹
  *	@author	zzr
+ *  @email	2231625449@qq.com
  *  @date	2023.9.12
  *
- *  1¡¢setFunctions
- *	2¡¢modelGenerate
+ *	@usage
+ *  	1ã€setFunctions
+ *		2ã€modelGenerate
  */
 #ifndef _MODEL_FIT_H_
 #define _MODEL_FIT_H_
 
 #include <Eigen/Dense>
 
-/* Ä£°å²ÎÊı£º¾ØÕóÄ£ĞÍµÄĞĞÊı£¬¾ØÕóÄ£ĞÍµÄÁĞÊı£¬ÄâºÏº¯ÊıµÄ½×Êı */
+/* æ¨¡æ¿å‚æ•°ï¼šçŸ©é˜µæ¨¡å‹çš„è¡Œæ•°ï¼ŒçŸ©é˜µæ¨¡å‹çš„åˆ—æ•°ï¼Œæ‹Ÿåˆå‡½æ•°çš„é˜¶æ•° */
 template<int rows,int cols,int order>
 class modelFit {
 public:
-	Eigen::Matrix<double, rows*cols,order+1> model;//ĞĞÊıÇø·Ö½×´Î²ÎÊı£¬ÁĞÊıÇø·Ö¾ØÕóÎ»ÖÃ²ÎÊı
+	Eigen::Matrix<double, rows*cols,order+1> model;//è¡Œæ•°åŒºåˆ†é˜¶æ¬¡å‚æ•°ï¼Œåˆ—æ•°åŒºåˆ†çŸ©é˜µä½ç½®å‚æ•°
 
-	/* µİ¹éµ÷ÓÃÇó½â·½³Ì½á¹û: ×Ô±äÁ¿£¬·½³ÌÏµÊı£¬·½³Ì½×Êı */
+	/* é€’å½’è°ƒç”¨æ±‚è§£æ–¹ç¨‹ç»“æœ: è‡ªå˜é‡ï¼Œæ–¹ç¨‹ç³»æ•°ï¼Œæ–¹ç¨‹é˜¶æ•° */
 	double functionSolve(const double _x, const Eigen::VectorXd _para, int _orderNum)
 	{
 		if (_orderNum)
@@ -35,7 +37,7 @@ public:
 		model.setZero();
 	}
 
-	/* Ä£ĞÍÉú³Éº¯Êı	ĞÎ²Î£º×Ô±äÁ¿ */
+	/* æ¨¡å‹ç”Ÿæˆå‡½æ•°	å½¢å‚ï¼šè‡ªå˜é‡ */
 	Eigen::MatrixXd modelGenerate(double _x) {
 		Eigen::MatrixXd result;
 		result.resize(rows, cols);
@@ -46,7 +48,7 @@ public:
 			}
 		return result;
 	}
-	/* ÉèÖÃÄâºÏ·½³Ì²ÎÊı£¬×Ô¶¯°´ÕÕ·½³Ì¸öÊı½øĞĞÑ­»·Ğ´Èë */
+	/* è®¾ç½®æ‹Ÿåˆæ–¹ç¨‹å‚æ•°ï¼Œè‡ªåŠ¨æŒ‰ç…§æ–¹ç¨‹ä¸ªæ•°è¿›è¡Œå¾ªç¯å†™å…¥ */
 	void setFunctions(double _functions[rows*cols*(order + 1)])
 	{
 		model = Eigen::Map<Eigen::Matrix<double, rows* cols, order + 1, Eigen::RowMajor>>(_functions);
