@@ -57,9 +57,9 @@ int main(int argc, char** argv) {
     UserData_Classdef user_params;
     ManipulatorS_Classdef right_manipulator(infantry_state.dt);
     ManipulatorS_Classdef left_manipulator(infantry_state.dt);
-    Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params, ctrlMode::LQR_);
-    qpoasesInterface mpcCal(10,4,4,0,2);// qpOASES
-    //tinympcInterface mpcCal(10, 4, 4, 0, 3, 1., 1);// tinyMPC
+    Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params, ctrlMode::MPC_);
+    //qpoasesInterface mpcCal(10,4,4,0,2);// qpOASES
+    tinympcInterface mpcCal(10, 4, 4, 0, 3, 1., 1);// tinyMPC
     //quadprogInterface mpcCal(10, 4, 4, 0, 10);//qp++
     //osqpInterface mpcCal(10, 4, 4, 0, 5);//osqp
     //osqpeInterface mpcCal(10, 4, 4, 0, 2);//osqp-eigen
