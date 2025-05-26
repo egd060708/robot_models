@@ -26,7 +26,7 @@
 #include "qpOASES_interface.h"
 #include "tinyMpc_interface.h"
 #include "quadprog_interface.h"
-//#include "osqp_interface.h"
+#include "osqp_interface.h"
 #include "osqpE_interface.h"
 
 // All the webots classes are defined in the "webots" namespace
@@ -58,10 +58,10 @@ int main(int argc, char** argv) {
     ManipulatorS_Classdef right_manipulator(infantry_state.dt);
     ManipulatorS_Classdef left_manipulator(infantry_state.dt);
     Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params, ctrlMode::MPC_);
-    qpoasesInterface mpcCal(10,4,4,0,2);// qpOASES
+    //qpoasesInterface mpcCal(10,4,4,0,2);// qpOASES
     //tinympcInterface mpcCal(10, 4, 4, 0, 3, 1., 1);// tinyMPC
     //quadprogInterface mpcCal(10, 4, 4, 0, 10);//qp++
-    //osqpInterface mpcCal(10, 4, 4, 0, 5);//osqp
+    osqpInterface mpcCal(10, 4, 4, 0, 2,0,0);//osqp
     //osqpeInterface mpcCal(10, 4, 4, 0, 2);//osqp-eigen
     //OsqpEigen::Solver solver;
     modelFit<10, 10, 3> modelA;
@@ -280,22 +280,22 @@ int main(int argc, char** argv) {
         }
         
 
-        /*float data[DNUM];
-        data[0] = float(controller.lqr_target[1]);
-        data[1] = float(controller.lqr_target[3]);
-        data[2] = float(controller.lqr_current[1]);
-        data[3] = float(controller.lqr_current[3]);
-        data[4] = float(controller.lqr_target[4]);
-        data[5] = float(controller.lqr_target[6]);
-        data[6] = float(controller.lqr_current[4]);
-        data[7] = float(controller.lqr_current[6]);
-        data[8] = float(right_manipulator.torque_output.wheel);
-        data[9] = float(left_manipulator.torque_output.wheel);
-        data[10] = float(right_manipulator.torque_output.f_joint);
-        data[11] = float(right_manipulator.torque_output.b_joint);
-        data[12] = float(left_manipulator.torque_output.f_joint);
-        data[13] = float(left_manipulator.torque_output.b_joint);
-        vofa.dataTransmit(data, 5);*/
+        //float data[DNUM];
+        //data[0] = float(controller.wheel_mpc_out[0]);
+        //data[1] = float(controller.wheel_mpc_out[1]);
+        //data[2] = float(controller.joint_mpc_out[0]);
+        //data[3] = float(controller.joint_mpc_out[1]);
+        //data[4] = float(controller.lqr_target[4]);
+        //data[5] = float(controller.lqr_target[6]);
+        //data[6] = float(controller.lqr_current[4]);
+        //data[7] = float(controller.lqr_current[6]);
+        //data[8] = float(right_manipulator.torque_output.wheel);
+        //data[9] = float(left_manipulator.torque_output.wheel);
+        //data[10] = float(right_manipulator.torque_output.f_joint);
+        //data[11] = float(right_manipulator.torque_output.b_joint);
+        //data[12] = float(left_manipulator.torque_output.f_joint);
+        //data[13] = float(left_manipulator.torque_output.b_joint);
+        //vofa.dataTransmit(data, 5);
     };
 
     // Enter here exit cleanup code.
