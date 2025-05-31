@@ -58,10 +58,11 @@ int main(int argc, char** argv) {
     ManipulatorS_Classdef right_manipulator(infantry_state.dt);
     ManipulatorS_Classdef left_manipulator(infantry_state.dt);
     Manipulator_Controller_Classdef controller(&infantry_state, &right_manipulator, &left_manipulator, &user_params, ctrlMode::MPC_);
-    //qpoasesInterface mpcCal(10,4,4,0,2);// qpOASES
+    //qpoasesInterface mpcCal(10, 4, 4, 0, 2);// qpOASES
+    qpoasesInterfaceSimple mpcCal(10,4,4,0,2);// qpOASES simple
     //tinympcInterface mpcCal(10, 4, 4, 0, 3, 1., 1);// tinyMPC
     //quadprogInterface mpcCal(10, 4, 4, 0, 10);//qp++
-    osqpInterface mpcCal(10, 4, 4, 0, 2,0,0);//osqp
+    //osqpInterface mpcCal(10, 4, 4, 0, 2,0,0);//osqp
     //osqpeInterface mpcCal(10, 4, 4, 0, 2);//osqp-eigen
     //OsqpEigen::Solver solver;
     modelFit<10, 10, 3> modelA;
