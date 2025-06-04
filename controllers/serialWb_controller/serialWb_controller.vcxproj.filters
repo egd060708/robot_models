@@ -191,6 +191,9 @@
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\osqp_interface.cpp">
       <Filter>mpc_interface</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcMatrixSparse.cpp">
+      <Filter>mpc_interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="webotsLib">

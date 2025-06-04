@@ -167,6 +167,7 @@
     <ClCompile Include="$(WEBOTS_HOME)\src\controller\cpp\VacuumGripper.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcCal.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcMatrix.cpp" />
+    <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\mpcMatrixSparse.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\osqpE_interface.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\osqp_interface.cpp" />
     <ClCompile Include="..\..\..\..\libs\controller_module\Mpc\Cpp\source\qpOASES\BLASReplacement.cpp" />
