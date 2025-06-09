@@ -18,7 +18,8 @@ template<int rows,int cols,int order>
 class modelFit {
 public:
 	//Eigen::Matrix<double, rows*cols,order+1> model;//行数区分阶次参数，列数区分矩阵位置参数
-	Eigen::MatrixXd model;
+	//Eigen::MatrixXd model;
+	Eigen::Matrix<double, order + 1, rows* cols, Eigen::ColMajor> model;
 
 	/* 递归调用求解方程结果: 自变量，方程系数，方程阶数 */
 	double functionSolve(const double _x, const Eigen::VectorXd _para, int _orderNum)
@@ -35,7 +36,7 @@ public:
 public:
 	modelFit()
 	{
-		//model.setZero();
+		model.setZero();
 	}
 
 	/* 模型生成函数	形参：自变量 */
